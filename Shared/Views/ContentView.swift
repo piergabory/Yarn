@@ -12,16 +12,26 @@ struct ContentView: View {
     @State private var runningImports: [SourceImport] = []
     
     var body: some View {
-        List {
-            SourceImportList($runningImports)
-            SourceList()
+        NavigationView {
+            List {
+                SourceImportList($runningImports)
+                SourceList()
+            }
+            .listStyle(SidebarListStyle())
+            .toolbar { importButton }
+            .navigationTitle("Yarn")
         }
-        .toolbar { Button("Import data") { showFileBrowserModal.toggle() } }
         .fileImporter(
             isPresented: $showFileBrowserModal,
             allowedContentTypes: [.json],
             onCompletion: handleFileImporter
         )
+    }
+    
+    private var importButton: some ToolbarContent {
+        ToolbarItem {
+            Button("Import data") { showFileBrowserModal.toggle() }
+        }
     }
     
     private func handleFileImporter(result: Result<URL, Error>) {
