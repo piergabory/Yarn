@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Location" representedClassName=".Location" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="source" maxCount="1" deletionRule="Nullify" destinationEntity="Source" inverseName="locations" inverseEntity="Source"/>
+    </entity>
+    <entity name="Source" representedClassName=".Source" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="-978310800" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="locations" toMany="YES" minCount="1" deletionRule="Cascade" destinationEntity="Location" inverseName="source" inverseEntity="Location"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="Location" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Source" positionX="-63" positionY="9" width="128" height="74"/>
     </elements>
 </model>

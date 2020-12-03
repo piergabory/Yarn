@@ -13,9 +13,17 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
+        
+        let source = Source(context: viewContext)
+        source.date = Date()
+        source.name = "Preview Source"
+        
         for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let location = Location(context: viewContext)
+            location.source = source
+            location.timestamp = Date()
+            location.latitude = 0
+            location.longitude = 0
         }
         do {
             try viewContext.save()

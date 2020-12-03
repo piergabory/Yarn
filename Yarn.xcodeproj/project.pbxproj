@@ -17,6 +17,12 @@
 		D4D27281257917EF000558DE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27268257917EC000558DE /* Persistence.swift */; };
 		D4D27282257917EF000558DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4D27269257917EF000558DE /* Assets.xcassets */; };
 		D4D27283257917EF000558DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4D27269257917EF000558DE /* Assets.xcassets */; };
+		D4F7AFE6257922C800B5C558 /* SourceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7AFE5257922C800B5C558 /* SourceList.swift */; };
+		D4F7AFE7257922C800B5C558 /* SourceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7AFE5257922C800B5C558 /* SourceList.swift */; };
+		D4F7AFED2579258900B5C558 /* SourceImportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7AFEC2579258900B5C558 /* SourceImportList.swift */; };
+		D4F7AFEE2579258900B5C558 /* SourceImportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7AFEC2579258900B5C558 /* SourceImportList.swift */; };
+		D4F7AFF72579263400B5C558 /* SourceImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7AFF62579263400B5C558 /* SourceImport.swift */; };
+		D4F7AFF82579263400B5C558 /* SourceImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7AFF62579263400B5C558 /* SourceImport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,9 @@
 		D4D27276257917EF000558DE /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D27278257917EF000558DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4D27279257917EF000558DE /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		D4F7AFE5257922C800B5C558 /* SourceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceList.swift; sourceTree = "<group>"; };
+		D4F7AFEC2579258900B5C558 /* SourceImportList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceImportList.swift; sourceTree = "<group>"; };
+		D4F7AFF62579263400B5C558 /* SourceImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceImport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +72,9 @@
 		D4D27263257917EC000558DE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D4F7AFF32579262700B5C558 /* Views */,
 				D4D27266257917EC000558DE /* YarnApp.swift */,
-				D4D27267257917EC000558DE /* ContentView.swift */,
+				D4F7AFF62579263400B5C558 /* SourceImport.swift */,
 				D4D27268257917EC000558DE /* Persistence.swift */,
 				D4D27269257917EF000558DE /* Assets.xcassets */,
 				D4D27264257917EC000558DE /* Yarn.xcdatamodeld */,
@@ -96,6 +106,16 @@
 				D4D27279257917EF000558DE /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		D4F7AFF32579262700B5C558 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4F7AFEC2579258900B5C558 /* SourceImportList.swift */,
+				D4D27267257917EC000558DE /* ContentView.swift */,
+				D4F7AFE5257922C800B5C558 /* SourceList.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +217,11 @@
 			files = (
 				D4D2727A257917EF000558DE /* Yarn.xcdatamodeld in Sources */,
 				D4D27280257917EF000558DE /* Persistence.swift in Sources */,
+				D4F7AFE6257922C800B5C558 /* SourceList.swift in Sources */,
 				D4D2727C257917EF000558DE /* YarnApp.swift in Sources */,
+				D4F7AFF72579263400B5C558 /* SourceImport.swift in Sources */,
 				D4D2727E257917EF000558DE /* ContentView.swift in Sources */,
+				D4F7AFED2579258900B5C558 /* SourceImportList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +231,11 @@
 			files = (
 				D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */,
 				D4D27281257917EF000558DE /* Persistence.swift in Sources */,
+				D4F7AFE7257922C800B5C558 /* SourceList.swift in Sources */,
 				D4D2727D257917EF000558DE /* YarnApp.swift in Sources */,
+				D4F7AFF82579263400B5C558 /* SourceImport.swift in Sources */,
 				D4D2727F257917EF000558DE /* ContentView.swift in Sources */,
+				D4F7AFEE2579258900B5C558 /* SourceImportList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
