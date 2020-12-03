@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4D2727A257917EF000558DE /* Yarn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D27264257917EC000558DE /* Yarn.xcdatamodeld */; };
+		D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D27264257917EC000558DE /* Yarn.xcdatamodeld */; };
+		D4D2727C257917EF000558DE /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27266257917EC000558DE /* YarnApp.swift */; };
+		D4D2727D257917EF000558DE /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27266257917EC000558DE /* YarnApp.swift */; };
+		D4D2727E257917EF000558DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27267257917EC000558DE /* ContentView.swift */; };
+		D4D2727F257917EF000558DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27267257917EC000558DE /* ContentView.swift */; };
+		D4D27280257917EF000558DE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27268257917EC000558DE /* Persistence.swift */; };
+		D4D27281257917EF000558DE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27268257917EC000558DE /* Persistence.swift */; };
+		D4D27282257917EF000558DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4D27269257917EF000558DE /* Assets.xcassets */; };
+		D4D27283257917EF000558DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4D27269257917EF000558DE /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D4D27265257917EC000558DE /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
+		D4D27266257917EC000558DE /* YarnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnApp.swift; sourceTree = "<group>"; };
+		D4D27267257917EC000558DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D4D27268257917EC000558DE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D4D27269257917EF000558DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4D2726E257917EF000558DE /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D27271257917EF000558DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4D27276257917EF000558DE /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D27278257917EF000558DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4D27279257917EF000558DE /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4D2726B257917EF000558DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4D27273257917EF000558DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4D2725E257917EC000558DE = {
+			isa = PBXGroup;
+			children = (
+				D4D27263257917EC000558DE /* Shared */,
+				D4D27270257917EF000558DE /* iOS */,
+				D4D27277257917EF000558DE /* macOS */,
+				D4D2726F257917EF000558DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4D27263257917EC000558DE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D4D27266257917EC000558DE /* YarnApp.swift */,
+				D4D27267257917EC000558DE /* ContentView.swift */,
+				D4D27268257917EC000558DE /* Persistence.swift */,
+				D4D27269257917EF000558DE /* Assets.xcassets */,
+				D4D27264257917EC000558DE /* Yarn.xcdatamodeld */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D4D2726F257917EF000558DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4D2726E257917EF000558DE /* Yarn.app */,
+				D4D27276257917EF000558DE /* Yarn.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4D27270257917EF000558DE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D4D27271257917EF000558DE /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		D4D27277257917EF000558DE /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				D4D27278257917EF000558DE /* Info.plist */,
+				D4D27279257917EF000558DE /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4D2726D257917EF000558DE /* Yarn (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4D27286257917EF000558DE /* Build configuration list for PBXNativeTarget "Yarn (iOS)" */;
+			buildPhases = (
+				D4D2726A257917EF000558DE /* Sources */,
+				D4D2726B257917EF000558DE /* Frameworks */,
+				D4D2726C257917EF000558DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Yarn (iOS)";
+			productName = "Yarn (iOS)";
+			productReference = D4D2726E257917EF000558DE /* Yarn.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4D27275257917EF000558DE /* Yarn (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4D27289257917EF000558DE /* Build configuration list for PBXNativeTarget "Yarn (macOS)" */;
+			buildPhases = (
+				D4D27272257917EF000558DE /* Sources */,
+				D4D27273257917EF000558DE /* Frameworks */,
+				D4D27274257917EF000558DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Yarn (macOS)";
+			productName = "Yarn (macOS)";
+			productReference = D4D27276257917EF000558DE /* Yarn.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4D2725F257917EC000558DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					D4D2726D257917EF000558DE = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					D4D27275257917EF000558DE = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = D4D27262257917EC000558DE /* Build configuration list for PBXProject "Yarn" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4D2725E257917EC000558DE;
+			productRefGroup = D4D2726F257917EF000558DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4D2726D257917EF000558DE /* Yarn (iOS) */,
+				D4D27275257917EF000558DE /* Yarn (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4D2726C257917EF000558DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4D27282257917EF000558DE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4D27274257917EF000558DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4D27283257917EF000558DE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4D2726A257917EF000558DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4D2727A257917EF000558DE /* Yarn.xcdatamodeld in Sources */,
+				D4D27280257917EF000558DE /* Persistence.swift in Sources */,
+				D4D2727C257917EF000558DE /* YarnApp.swift in Sources */,
+				D4D2727E257917EF000558DE /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4D27272257917EF000558DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */,
+				D4D27281257917EF000558DE /* Persistence.swift in Sources */,
+				D4D2727D257917EF000558DE /* YarnApp.swift in Sources */,
+				D4D2727F257917EF000558DE /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D4D27284257917EF000558DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D4D27285257917EF000558DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D4D27287257917EF000558DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ3CB2MZ43;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.piergabory.Yarn;
+				PRODUCT_NAME = Yarn;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4D27288257917EF000558DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ3CB2MZ43;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.piergabory.Yarn;
+				PRODUCT_NAME = Yarn;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4D2728A257917EF000558DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = GJ3CB2MZ43;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.piergabory.Yarn;
+				PRODUCT_NAME = Yarn;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D4D2728B257917EF000558DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = GJ3CB2MZ43;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.piergabory.Yarn;
+				PRODUCT_NAME = Yarn;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4D27262257917EC000558DE /* Build configuration list for PBXProject "Yarn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4D27284257917EF000558DE /* Debug */,
+				D4D27285257917EF000558DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4D27286257917EF000558DE /* Build configuration list for PBXNativeTarget "Yarn (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4D27287257917EF000558DE /* Debug */,
+				D4D27288257917EF000558DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4D27289257917EF000558DE /* Build configuration list for PBXNativeTarget "Yarn (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4D2728A257917EF000558DE /* Debug */,
+				D4D2728B257917EF000558DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D4D27264257917EC000558DE /* Yarn.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D4D27265257917EC000558DE /* Shared.xcdatamodel */,
+			);
+			currentVersion = D4D27265257917EC000558DE /* Shared.xcdatamodel */;
+			path = Yarn.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D4D2725F257917EC000558DE /* Project object */;
+}
