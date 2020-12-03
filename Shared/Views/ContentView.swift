@@ -20,6 +20,8 @@ struct ContentView: View {
             .listStyle(SidebarListStyle())
             .toolbar { importButton }
             .navigationTitle("Yarn")
+            MapView()
+                .ignoresSafeArea()
         }
         .fileImporter(
             isPresented: $showFileBrowserModal,
@@ -53,5 +55,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environment(\.managedObjectContext,  PersistenceController.preview.container.viewContext)
+            .previewLayout(.sizeThatFits)
     }
 }
