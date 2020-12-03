@@ -27,6 +27,8 @@
 		D4F7B00125793CC500B5C558 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7AFFF25793CC400B5C558 /* MapView.swift */; };
 		D4F7B00525793CE500B5C558 /* MapView + UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B00425793CE500B5C558 /* MapView + UIKit.swift */; };
 		D4F7B00B25793D4200B5C558 /* MapView + AppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B00925793D4200B5C558 /* MapView + AppKit.swift */; };
+		D4F7B0142579406200B5C558 /* Location + CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B0132579406100B5C558 /* Location + CLLocation.swift */; };
+		D4F7B0152579406200B5C558 /* Location + CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B0132579406100B5C558 /* Location + CLLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,7 @@
 		D4F7AFFF25793CC400B5C558 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		D4F7B00425793CE500B5C558 /* MapView + UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView + UIKit.swift"; sourceTree = "<group>"; };
 		D4F7B00925793D4200B5C558 /* MapView + AppKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView + AppKit.swift"; sourceTree = "<group>"; };
+		D4F7B0132579406100B5C558 /* Location + CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location + CLLocation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,7 @@
 		D4D27263257917EC000558DE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D4F7B0122579405800B5C558 /* Model */,
 				D4F7AFF32579262700B5C558 /* Views */,
 				D4D27266257917EC000558DE /* YarnApp.swift */,
 				D4F7AFF62579263400B5C558 /* SourceImport.swift */,
@@ -126,6 +130,14 @@
 				D4F7AFFF25793CC400B5C558 /* MapView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D4F7B0122579405800B5C558 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4F7B0132579406100B5C558 /* Location + CLLocation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +241,7 @@
 				D4F7B00025793CC400B5C558 /* MapView.swift in Sources */,
 				D4D27280257917EF000558DE /* Persistence.swift in Sources */,
 				D4F7B00525793CE500B5C558 /* MapView + UIKit.swift in Sources */,
+				D4F7B0142579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4F7AFE6257922C800B5C558 /* SourceList.swift in Sources */,
 				D4D2727C257917EF000558DE /* YarnApp.swift in Sources */,
 				D4F7AFF72579263400B5C558 /* SourceImport.swift in Sources */,
@@ -245,6 +258,7 @@
 				D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */,
 				D4F7B00125793CC500B5C558 /* MapView.swift in Sources */,
 				D4D27281257917EF000558DE /* Persistence.swift in Sources */,
+				D4F7B0152579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4F7AFE7257922C800B5C558 /* SourceList.swift in Sources */,
 				D4D2727D257917EF000558DE /* YarnApp.swift in Sources */,
 				D4F7AFF82579263400B5C558 /* SourceImport.swift in Sources */,
