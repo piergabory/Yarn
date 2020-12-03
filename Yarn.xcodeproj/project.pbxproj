@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D47ED778257945D400F102CC /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED777257945D400F102CC /* SidebarView.swift */; };
+		D47ED779257945D400F102CC /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED777257945D400F102CC /* SidebarView.swift */; };
 		D4D2727A257917EF000558DE /* Yarn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D27264257917EC000558DE /* Yarn.xcdatamodeld */; };
 		D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D27264257917EC000558DE /* Yarn.xcdatamodeld */; };
 		D4D2727C257917EF000558DE /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27266257917EC000558DE /* YarnApp.swift */; };
@@ -29,9 +31,12 @@
 		D4F7B00B25793D4200B5C558 /* MapView + AppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B00925793D4200B5C558 /* MapView + AppKit.swift */; };
 		D4F7B0142579406200B5C558 /* Location + CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B0132579406100B5C558 /* Location + CLLocation.swift */; };
 		D4F7B0152579406200B5C558 /* Location + CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B0132579406100B5C558 /* Location + CLLocation.swift */; };
+		D4F7B01B2579452F00B5C558 /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B01A2579452F00B5C558 /* PathView.swift */; };
+		D4F7B01C2579452F00B5C558 /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B01A2579452F00B5C558 /* PathView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D47ED777257945D400F102CC /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		D4D27265257917EC000558DE /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D4D27266257917EC000558DE /* YarnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnApp.swift; sourceTree = "<group>"; };
 		D4D27267257917EC000558DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		D4F7B00425793CE500B5C558 /* MapView + UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView + UIKit.swift"; sourceTree = "<group>"; };
 		D4F7B00925793D4200B5C558 /* MapView + AppKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView + AppKit.swift"; sourceTree = "<group>"; };
 		D4F7B0132579406100B5C558 /* Location + CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location + CLLocation.swift"; sourceTree = "<group>"; };
+		D4F7B01A2579452F00B5C558 /* PathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,8 @@
 				D4D27267257917EC000558DE /* ContentView.swift */,
 				D4F7AFE5257922C800B5C558 /* SourceList.swift */,
 				D4F7AFFF25793CC400B5C558 /* MapView.swift */,
+				D4F7B01A2579452F00B5C558 /* PathView.swift */,
+				D47ED777257945D400F102CC /* SidebarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,6 +249,8 @@
 				D4F7B00025793CC400B5C558 /* MapView.swift in Sources */,
 				D4D27280257917EF000558DE /* Persistence.swift in Sources */,
 				D4F7B00525793CE500B5C558 /* MapView + UIKit.swift in Sources */,
+				D4F7B01B2579452F00B5C558 /* PathView.swift in Sources */,
+				D47ED778257945D400F102CC /* SidebarView.swift in Sources */,
 				D4F7B0142579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4F7AFE6257922C800B5C558 /* SourceList.swift in Sources */,
 				D4D2727C257917EF000558DE /* YarnApp.swift in Sources */,
@@ -258,6 +268,8 @@
 				D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */,
 				D4F7B00125793CC500B5C558 /* MapView.swift in Sources */,
 				D4D27281257917EF000558DE /* Persistence.swift in Sources */,
+				D4F7B01C2579452F00B5C558 /* PathView.swift in Sources */,
+				D47ED779257945D400F102CC /* SidebarView.swift in Sources */,
 				D4F7B0152579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4F7AFE7257922C800B5C558 /* SourceList.swift in Sources */,
 				D4D2727D257917EF000558DE /* YarnApp.swift in Sources */,
