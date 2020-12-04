@@ -13,8 +13,8 @@
 		D47ED789257A44FB00F102CC /* GoogleMapTimelineDecodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED785257A44FB00F102CC /* GoogleMapTimelineDecodables.swift */; };
 		D47ED799257A45B000F102CC /* GoogleMapTimeline + Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED798257A45B000F102CC /* GoogleMapTimeline + Location.swift */; };
 		D47ED79A257A45B000F102CC /* GoogleMapTimeline + Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED798257A45B000F102CC /* GoogleMapTimeline + Location.swift */; };
-		D47ED7A1257A465B00F102CC /* StreamDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED7A0257A465B00F102CC /* StreamDecoder.swift */; };
-		D47ED7A2257A465B00F102CC /* StreamDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED7A0257A465B00F102CC /* StreamDecoder.swift */; };
+		D47ED7A1257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */; };
+		D47ED7A2257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */; };
 		D4D2727A257917EF000558DE /* Yarn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D27264257917EC000558DE /* Yarn.xcdatamodeld */; };
 		D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D27264257917EC000558DE /* Yarn.xcdatamodeld */; };
 		D4D2727C257917EF000558DE /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27266257917EC000558DE /* YarnApp.swift */; };
@@ -45,7 +45,7 @@
 		D47ED777257945D400F102CC /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		D47ED785257A44FB00F102CC /* GoogleMapTimelineDecodables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapTimelineDecodables.swift; sourceTree = "<group>"; };
 		D47ED798257A45B000F102CC /* GoogleMapTimeline + Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoogleMapTimeline + Location.swift"; sourceTree = "<group>"; };
-		D47ED7A0257A465B00F102CC /* StreamDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamDecoder.swift; sourceTree = "<group>"; };
+		D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStreamDecodingTask.swift; sourceTree = "<group>"; };
 		D4D27265257917EC000558DE /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D4D27266257917EC000558DE /* YarnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnApp.swift; sourceTree = "<group>"; };
 		D4D27267257917EC000558DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,8 +128,6 @@
 				D4F7B0122579405800B5C558 /* Model */,
 				D4F7AFF32579262700B5C558 /* Views */,
 				D4D27266257917EC000558DE /* YarnApp.swift */,
-				D4F7AFF62579263400B5C558 /* SourceImport.swift */,
-				D4D27268257917EC000558DE /* Persistence.swift */,
 				D4D27269257917EF000558DE /* Assets.xcassets */,
 				D4D27264257917EC000558DE /* Yarn.xcdatamodeld */,
 			);
@@ -179,7 +177,9 @@
 			children = (
 				D47ED79D257A464400F102CC /* GoogleMapTimeline */,
 				D4F7B0132579406100B5C558 /* Location + CLLocation.swift */,
-				D47ED7A0257A465B00F102CC /* StreamDecoder.swift */,
+				D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */,
+				D4F7AFF62579263400B5C558 /* SourceImport.swift */,
+				D4D27268257917EC000558DE /* Persistence.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,7 +292,7 @@
 				D4F7B0142579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4F7AFE6257922C800B5C558 /* SourceList.swift in Sources */,
 				D4D2727C257917EF000558DE /* YarnApp.swift in Sources */,
-				D47ED7A1257A465B00F102CC /* StreamDecoder.swift in Sources */,
+				D47ED7A1257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */,
 				D4F7AFF72579263400B5C558 /* SourceImport.swift in Sources */,
 				D4D2727E257917EF000558DE /* ContentView.swift in Sources */,
 				D4F7AFED2579258900B5C558 /* SourceImportList.swift in Sources */,
@@ -314,7 +314,7 @@
 				D4F7B0152579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4F7AFE7257922C800B5C558 /* SourceList.swift in Sources */,
 				D4D2727D257917EF000558DE /* YarnApp.swift in Sources */,
-				D47ED7A2257A465B00F102CC /* StreamDecoder.swift in Sources */,
+				D47ED7A2257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */,
 				D4F7AFF82579263400B5C558 /* SourceImport.swift in Sources */,
 				D4D2727F257917EF000558DE /* ContentView.swift in Sources */,
 				D4F7AFEE2579258900B5C558 /* SourceImportList.swift in Sources */,

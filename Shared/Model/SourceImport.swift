@@ -6,6 +6,7 @@
 //
 
 import Combine
+import CoreData
 import Foundation
 
 class SourceImport: ObservableObject, Identifiable {
@@ -15,7 +16,7 @@ class SourceImport: ObservableObject, Identifiable {
     @Published var completedBytes = 0
     var progress: Double { Double(completedBytes) / Double(totalBytes) }
     
-    init(filePath: URL) throws {
+    init(filePath: URL, saveIn managedObjectContext: NSManagedObjectContext) throws {
         fileName = filePath.lastPathComponent
         let totalBytes = try FileManager.default.attributesOfItem(atPath: filePath.path)[.size] as! Int
         self.totalBytes = totalBytes
@@ -38,5 +39,9 @@ class SourceImport: ObservableObject, Identifiable {
     
     deinit {
         task.cancel()
+    }
+    
+    private func decode(stream: InputStream) {
+        
     }
 }
