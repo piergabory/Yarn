@@ -15,6 +15,8 @@
 		D47ED79A257A45B000F102CC /* GoogleMapTimeline + Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED798257A45B000F102CC /* GoogleMapTimeline + Location.swift */; };
 		D47ED7A1257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */; };
 		D47ED7A2257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */; };
+		D49F8B87257A853700E8FCBC /* SourceImport + NSDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49F8B85257A853700E8FCBC /* SourceImport + NSDocument.swift */; };
+		D49F8B94257AA0CD00E8FCBC /* SourceImport + UIDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49F8B93257AA0CD00E8FCBC /* SourceImport + UIDocument.swift */; };
 		D4D2727A257917EF000558DE /* Yarn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D27264257917EC000558DE /* Yarn.xcdatamodeld */; };
 		D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D27264257917EC000558DE /* Yarn.xcdatamodeld */; };
 		D4D2727C257917EF000558DE /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27266257917EC000558DE /* YarnApp.swift */; };
@@ -46,6 +48,8 @@
 		D47ED785257A44FB00F102CC /* GoogleMapTimelineDecodables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapTimelineDecodables.swift; sourceTree = "<group>"; };
 		D47ED798257A45B000F102CC /* GoogleMapTimeline + Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoogleMapTimeline + Location.swift"; sourceTree = "<group>"; };
 		D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStreamDecodingTask.swift; sourceTree = "<group>"; };
+		D49F8B85257A853700E8FCBC /* SourceImport + NSDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SourceImport + NSDocument.swift"; sourceTree = "<group>"; };
+		D49F8B93257AA0CD00E8FCBC /* SourceImport + UIDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SourceImport + UIDocument.swift"; sourceTree = "<group>"; };
 		D4D27265257917EC000558DE /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D4D27266257917EC000558DE /* YarnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnApp.swift; sourceTree = "<group>"; };
 		D4D27267257917EC000558DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			children = (
 				D4D27271257917EF000558DE /* Info.plist */,
 				D4F7B00425793CE500B5C558 /* MapView + UIKit.swift */,
+				D49F8B93257AA0CD00E8FCBC /* SourceImport + UIDocument.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				D4D27278257917EF000558DE /* Info.plist */,
 				D4D27279257917EF000558DE /* macOS.entitlements */,
 				D4F7B00925793D4200B5C558 /* MapView + AppKit.swift */,
+				D49F8B85257A853700E8FCBC /* SourceImport + NSDocument.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4D2727A257917EF000558DE /* Yarn.xcdatamodeld in Sources */,
+				D49F8B94257AA0CD00E8FCBC /* SourceImport + UIDocument.swift in Sources */,
 				D47ED799257A45B000F102CC /* GoogleMapTimeline + Location.swift in Sources */,
 				D4F7B00025793CC400B5C558 /* MapView.swift in Sources */,
 				D4D27280257917EF000558DE /* Persistence.swift in Sources */,
@@ -304,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4F7B00B25793D4200B5C558 /* MapView + AppKit.swift in Sources */,
+				D49F8B87257A853700E8FCBC /* SourceImport + NSDocument.swift in Sources */,
 				D47ED79A257A45B000F102CC /* GoogleMapTimeline + Location.swift in Sources */,
 				D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */,
 				D4F7B00125793CC500B5C558 /* MapView.swift in Sources */,

@@ -41,26 +41,8 @@ private struct SourceImportView: View {
         ProgressView(value: sourceImport.progress) {
             Text(sourceImport.fileName)
                 .font(.headline)
-            Text(progressCallout)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
         }
             .progressViewStyle(LinearProgressViewStyle())
-    }
-    
-    var progressCallout: String {
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 2
-        formatter.maximumIntegerDigits = 3
-        let fraction = NSNumber(value: sourceImport.progress * 100.0)
-        let percentage = formatter.string(from: fraction) ?? ".."
-        let megabyte = 1000000
-        return [
-            "\(sourceImport.completedBytes / megabyte)",
-            "out of",
-            "\(sourceImport.totalBytes / megabyte)",
-            "MB (" + percentage + "%)"
-        ].joined(separator: " ")
     }
 }
 

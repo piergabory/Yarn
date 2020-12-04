@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SidebarView: View {
+    @Environment(\.managedObjectContext) private var managedObjectContext
     @State private var runningImports: [SourceImport] = []
     @State private var showFileBrowserModal = false
     
@@ -37,7 +38,10 @@ struct SidebarView: View {
             print(error)
         case let .success(filePath):
             do {
-                let sourceImport = try SourceImport(filePath: filePath)
+                let sourceImport = try SourceImport(
+                    filePath: filePath,
+                    saveIn: managedObjectContext
+                )
                 runningImports.append(sourceImport)
             } catch {
                 print(error)

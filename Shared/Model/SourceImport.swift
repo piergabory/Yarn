@@ -10,38 +10,80 @@ import CoreData
 import Foundation
 
 class SourceImport: ObservableObject, Identifiable {
-    private var task: AnyCancellable!
-    let fileName: String
-    var totalBytes: Int
-    @Published var completedBytes = 0
-    var progress: Double { Double(completedBytes) / Double(totalBytes) }
+    
+    private let decodingQueue = DispatchQueue(label: "Import Location Decoding")
+    private let processingQueue = DispatchQueue(label: "Import Location Processing")
+    
+    private var cancellableSet: Set<AnyCancellable> = []
+    
+    private lazy var fileByteSize = getSourceFileSize()
+    private lazy var source = createSource()
+    
+    private let managedObjectContext: NSManagedObjectContext
+    
+    @Published private var readBytes = 0
+    
+    let filePath: URL
+    
+    var progress: Double { Double(readBytes) / Double(fileByteSize) }
+    var fileName: String { filePath.lastPathComponent }
     
     init(filePath: URL, saveIn managedObjectContext: NSManagedObjectContext) throws {
-        fileName = filePath.lastPathComponent
-        let totalBytes = try FileManager.default.attributesOfItem(atPath: filePath.path)[.size] as! Int
-        self.totalBytes = totalBytes
-        DispatchQueue.global(qos: .utility).async { [weak self] in
-            self?.task = (0...totalBytes).publisher
-                .collect(1000000)
-                .map(\.last!)
-                .throttle(for: .milliseconds(300), scheduler: RunLoop.main, latest: true)
-                .sink { [weak self] in self?.completedBytes = $0 }
+        self.filePath = filePath
+        self.managedObjectContext = managedObjectContext
+        
+        let coordinator = NSFileCoordinator(filePresenter: filePresenter)
+        coordinator.coordinate(readingItemAt: filePath, options: .withoutChanges, error: nil) { url in
+            guard let stream = InputStream(url: url) else { return }
+            decodingQueue.async { [weak self] in
+                self?.decode(stream: stream)
+            }
         }
     }
     
-    static var preview = SourceImport()
+    private func decode(stream: InputStream) {
+        stream.open()
+        let decodingTask = JSONStreamDecodingTask<GoogleMapTimeline.Location>(stream: stream)
+        
+        decodingTask.execute()
+            .collect(.byTime(processingQueue, .milliseconds(500)))
+            .map { [managedObjectContext] in $0.insert(in: managedObjectContext) }
+            .sink { completion in
+                print(completion)
+            } receiveValue: { [weak self] locations in
+                self?.source.locations?.addingObjects(from: locations)
+            }
+            .store(in: &cancellableSet)
+        
+        decodingTask.$progress
+            .throttle(for: .milliseconds(30), scheduler: RunLoop.main, latest: true)
+            .assign(to: \.readBytes, on: self)
+            .store(in: &cancellableSet)
+    }
+    
+    private func createSource() -> Source {
+        let source = Source(context: managedObjectContext)
+        source.name = filePath.lastPathComponent
+        source.date = Date()
+        return source
+    }
+    
+    private func getSourceFileSize() -> Int {
+        do {
+            let attributes = try FileManager.default.attributesOfItem(atPath: filePath.path)
+            return attributes[.size] as! Int
+        } catch {
+            print(error.localizedDescription)
+            return 0
+        }
+    }
+    
+    // MARK: - Preview
     
     private init() {
-        fileName = "Preview file import"
-        totalBytes = 1000000000
-        completedBytes = 400000000
+        managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        filePath = URL(fileURLWithPath: "/null/previewFile.json")
     }
     
-    deinit {
-        task.cancel()
-    }
-    
-    private func decode(stream: InputStream) {
-        
-    }
+    static let preview = SourceImport()
 }
