@@ -12,84 +12,123 @@ enum JSONStreamDecodingError: Error {
     case failedToFindNextObject(jsonString: String)
 }
 
-struct JSONStreamDecoder<Object: Decodable> {
-    typealias Result = (Object, Int)
-    
+class JSONStreamDecodingTask<Object: Decodable> {
     private let decoder = JSONDecoder()
-    private let subject = PassthroughSubject<Result, Error>()
-    private let bufferSize = 100000
-    private let targetQueue = DispatchQueue.global(qos: .utility)
+    private let stream: InputStream
+    private let shouldSkipToArrayBracket: Bool
     
-    func decode(stream: InputStream) -> AnyPublisher<Result, Error>  {
-        targetQueue.async { [self] in
-            do { try decodingTask(stream: stream, skipBytes: 10) }
-            catch { subject.send(completion: .failure(error)) }
-        }
+    private var occupiedBytes = 0
+    private var bufferSize = 1024
+    private var readBuffer: UnsafeMutablePointer<UInt8>!
+    private var remainderBuffer: UnsafeMutablePointer<UInt8>!
+    
+    let subject = PassthroughSubject<Object, Error>()
+    @Published var progress = 0
+    
+    init(stream: InputStream, shouldSkipToArrayBracket: Bool = true) {
+        self.stream = stream
+        self.shouldSkipToArrayBracket = shouldSkipToArrayBracket
+    }
+    
+    func execute() -> AnyPublisher<Object, Error> {
+        DispatchQueue.global(qos: .utility).async(execute: task)
         return subject.eraseToAnyPublisher()
     }
     
-    // MARK: - Private
-        
-    private func decodingTask(stream: InputStream, skipBytes: Int = 0) throws {
-        // Initialize Buffers
-        var occupiedBytes = 0
-        var readBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize)
-        var remainderBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize)
-        
-        // Advance past the root object
-        stream.read(readBuffer, maxLength: skipBytes)
-        
-        // Decode File
-        while (stream.hasBytesAvailable) {
-            
-            // Access bytes
-            let headByteAddress = readBuffer + occupiedBytes
-            let maxByteCount = bufferSize - occupiedBytes
-            let bytesReadCount = stream.read(headByteAddress, maxLength: maxByteCount)
-            
-            // Decode data
-            let data = Data(bytesNoCopy: readBuffer, count: bufferSize, deallocator: .none)
-            let objectRange = try rangeOfFirstObject(in: readBuffer, count: bufferSize)
-            let object = try decoder.decode(Object.self, from: data[objectRange])
-            
-            // Publish
-            subject.send((object, bytesReadCount))
-            
-            // Update state, swap buffers
-            occupiedBytes = bufferSize - objectRange.last!
-            data.copyBytes(to: remainderBuffer, from: objectRange.last!..<bufferSize)
-            (remainderBuffer, readBuffer) = (readBuffer, remainderBuffer)
+    private func swapBuffers() {
+        (remainderBuffer, readBuffer) = (readBuffer, remainderBuffer)
+    }
+    
+    private func task() {
+        readBuffer = .allocate(capacity: bufferSize)
+        remainderBuffer = .allocate(capacity: bufferSize)
+        findBeginningOfArray()
+        while stream.hasBytesAvailable {
+            do {
+                try decodeNextObject()
+            } catch {
+                subject.send(completion: .failure(error))
+                return
+            }
         }
         
-        // Deallocate Buffers
         readBuffer.deallocate()
         remainderBuffer.deallocate()
         subject.send(completion: .finished)
     }
     
-    /// Returns byte range of the first complete object in the data
-    /// O(n)
-    private func rangeOfFirstObject(in jsonData: UnsafePointer<UInt8>, count: Int) throws -> ClosedRange<Int> {
+    private func findBeginningOfArray() {
+        guard shouldSkipToArrayBracket, stream.hasBytesAvailable else { return }
+        let skip = stream.read(readBuffer, maxLength: 256)
+        progress += skip
+        let data = Data(bytesNoCopy: readBuffer, count: skip, deallocator: .none)
+        guard let bracketIndex = data.firstIndex(of: 0x5B) else {
+            occupiedBytes = skip
+            return
+        }
+        data[bracketIndex..<skip].copyBytes(to: remainderBuffer, count: skip - bracketIndex)
+        swapBuffers()
+    }
+
+    private func decodeNextObject() throws {
+        // Access bytes
+        let headByteAddress = readBuffer + occupiedBytes
+        let maxByteCount = bufferSize - occupiedBytes
+        progress += stream.read(headByteAddress, maxLength: maxByteCount)
+        
+        // Decode data
+        let data = Data(bytesNoCopy: readBuffer, count: bufferSize, deallocator: .none)
+        guard let objectRange = rangeOfFirstObject(in: 0..<bufferSize) else { return }
+        let object = try decoder.decode(Object.self, from: data[objectRange])
+        
+        // Publish
+        subject.send(object)
+        
+        // Update state, swap buffers
+        occupiedBytes = bufferSize - objectRange.last!
+        data.copyBytes(to: remainderBuffer, from: objectRange.last!..<bufferSize)
+        swapBuffers()
+    }
+    
+    private func rangeOfFirstObject(in byteRange: Range<Int>) -> ClosedRange<Int>? {
         var start: Int? = nil
         var depth = 0
-        
-        for index in 0..<count {
-            switch (jsonData + index).pointee {
-            case 0x7b:
-                depth += 1
-                if start == nil { start = index}
-            case 0x7d:
-                if start == nil { break }
-                depth -= 1
-                if depth == 0 { return start!...index }
-            default: break
+        var byteRange = byteRange
+        repeat {
+            for index in byteRange {
+                switch (readBuffer + index).pointee {
+                case 0x7b:
+                    depth += 1
+                    if start == nil { start = index}
+                case 0x7d:
+                    if start == nil { break }
+                    depth -= 1
+                    if depth == 0 { return start!...index }
+                default: break
+                }
             }
-        }
+            doubleBufferSize()
+            byteRange = byteRange.upperBound..<bufferSize
+        } while(stream.hasBytesAvailable)
         
-        // Error
-        let data = Data(bytes: jsonData, count: count)
-        let string = String(data: data, encoding: .utf8)
-        throw JSONStreamDecodingError.failedToFindNextObject(jsonString: string ?? "[Non UTF8 Data]")
+        return nil
+    }
+    
+    private func doubleBufferSize() {
+        print("Doubling buffer size to \(bufferSize) bytes.")
+        
+        let biggerReadBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize * 2)
+        let biggerRemainderBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize * 2)
+        
+        biggerReadBuffer.initialize(from: readBuffer, count: bufferSize)
+        biggerRemainderBuffer.initialize(from: remainderBuffer, count: bufferSize)
+        
+        readBuffer.deallocate()
+        remainderBuffer.deallocate()
+        
+        bufferSize *= 2
+        
+        readBuffer = biggerReadBuffer
+        remainderBuffer = biggerRemainderBuffer
     }
 }
-
