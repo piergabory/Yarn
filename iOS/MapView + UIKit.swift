@@ -11,10 +11,10 @@ import MapKit
 extension MapView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MKMapView {
-        return MKMapView()
+        makeMKMapView(context: context)
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
-        // todo
+        updateMKMapView(uiView, context: context)
     }
 }
