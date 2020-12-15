@@ -12,6 +12,11 @@ import AppKit
 extension SourceImport {
     
     var filePresenter: NSFilePresenter? {
-        try? NSDocument(contentsOf: filePath, ofType: UTType.json.identifier)
+        try? ImportedDocument(contentsOf: filePath, ofType: UTType.json.identifier)
     }
+}
+
+private class ImportedDocument: NSDocument {
+    override func read(from data: Data, ofType typeName: String) throws { }
+    override func read(from url: URL, ofType typeName: String) throws { }
 }
