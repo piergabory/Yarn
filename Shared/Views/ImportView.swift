@@ -13,13 +13,18 @@ struct ImportView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            Text("Importing...")
+            .font(.headline)
+            Divider()
             HStack {
-                Text(importTask.fileName).font(.headline)
+                Text(importTask.fileName)
                 Spacer()
                 Button("Cancel", action: importTask.cancel)
                     .foregroundColor(.red)
             }
-            ProgressView(importTask.progress).font(.subheadline)
+            .padding(.vertical)
+            ProgressView(importTask.progress)
+                .font(.subheadline)
         }
         .onAppear { importTask.store(managedObjectContext: managedObjectContext) }
     }
@@ -28,5 +33,6 @@ struct ImportView: View {
 struct ImportView_Previews: PreviewProvider {
     static var previews: some View {
         ImportView(importTask: Import(fileAt: URL(fileURLWithPath: "/null")))
+            .previewLayout(.sizeThatFits)
     }
 }

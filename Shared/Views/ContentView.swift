@@ -8,36 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showFileImporter = false
-    @StateObject private var importDropDelegate = Importer()
+    @State private var startDate = Date()
+    @State private var endDate = Date()
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             MapView(path: [])
                 .ignoresSafeArea()
             VStack {
-                if let importTask = importDropDelegate.importTask {
-                    ImportView(importTask: importTask)
-                } else {
-                    Button("Import File") { showFileImporter.toggle() }
+                Group {
+                    VStack(alignment: .leading) {
+                        Text("Yarn")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Text("Displayed locations")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Divider()
+                        DatePicker("Start", selection: $startDate, displayedComponents: .date)
+                        DatePicker("End", selection: $endDate, displayedComponents: .date)
+                    }
+                    ImporterView()
                 }
+                .frame(width: 300)
+                .padding()
+                .background(Color(.systemBackground))
+                .cornerRadius(8)
             }
-            .frame(width: 300)
-            .padding()
-            .background(Color(.systemBackground))
-            .cornerRadius(8)
-            .padding()
-        }
-        .onDrop(of: [.json], delegate: importDropDelegate)
-        .fileImporter(isPresented: $showFileImporter, allowedContentTypes: [.json], onCompletion: handle(fileImporter:))
-    }
-    
-    private func handle(fileImporter result: Result<URL, Error>) {
-        switch result {
-        case let .failure(error):
-            print(error)
-        case let .success(url):
-            importDropDelegate.import(from: url)
+            .padding(.horizontal)
+            
         }
     }
 }
@@ -45,7 +44,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environment(\.managedObjectContext,  PersistenceController.preview.container.viewContext)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .previewLayout(.sizeThatFits)
     }
 }

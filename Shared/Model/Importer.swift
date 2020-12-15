@@ -35,7 +35,9 @@ class Importer: DropDelegate, ObservableObject {
         coordinator.coordinate(readingItemAt: url, options: .withoutChanges, error: nil) { url in
             let task = Import(fileAt: url)
             DispatchQueue.main.async {
-                self.importTask = task
+                withAnimation {
+                    self.importTask = task
+                }
             }
         }
     }
