@@ -32,11 +32,10 @@ struct ContentView: View {
                 }
                 .frame(width: 300)
                 .padding()
-                .background(Color(.systemBackground))
+                .background(Color("CardBackground"))
                 .cornerRadius(8)
             }
             .padding(.horizontal)
-            
         }
     }
 }
