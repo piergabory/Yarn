@@ -13,7 +13,7 @@ struct ImporterView: View {
     
     var body: some View {
         Group {
-            if let importTask = importDropDelegate.importTask {
+            if let importTask = importDropDelegate.importTask, !importTask.progress.isFinished {
                 ImportView(importTask: importTask)
             } else {
                 Button("Import File") { showFileImporter.toggle() }
