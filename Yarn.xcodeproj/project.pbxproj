@@ -17,6 +17,16 @@
 		D47ED7A2257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */; };
 		D49F8B87257A853700E8FCBC /* SourceImport + NSDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49F8B85257A853700E8FCBC /* SourceImport + NSDocument.swift */; };
 		D49F8B94257AA0CD00E8FCBC /* SourceImport + UIDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49F8B93257AA0CD00E8FCBC /* SourceImport + UIDocument.swift */; };
+		D4CDBC0E2589079000209D54 /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDBC0D2589079000209D54 /* ImportView.swift */; };
+		D4CDBC0F2589079000209D54 /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDBC0D2589079000209D54 /* ImportView.swift */; };
+		D4CDBC1525890ECF00209D54 /* Import + UIDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDBC1425890ECF00209D54 /* Import + UIDocument.swift */; };
+		D4CDBC1B25890F1900209D54 /* Import + NSDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDBC1925890F1900209D54 /* Import + NSDocument.swift */; };
+		D4CDBC2325890FB300209D54 /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDBC2225890FB300209D54 /* Import.swift */; };
+		D4CDBC2425890FB300209D54 /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDBC2225890FB300209D54 /* Import.swift */; };
+		D4CDBC282589159300209D54 /* LocationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDBC272589159300209D54 /* LocationStorage.swift */; };
+		D4CDBC292589159300209D54 /* LocationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDBC272589159300209D54 /* LocationStorage.swift */; };
+		D4CDBC3125892B5C00209D54 /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDBC3025892B5C00209D54 /* Importer.swift */; };
+		D4CDBC3225892B5C00209D54 /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDBC3025892B5C00209D54 /* Importer.swift */; };
 		D4D2727A257917EF000558DE /* Yarn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D27264257917EC000558DE /* Yarn.xcdatamodeld */; };
 		D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D27264257917EC000558DE /* Yarn.xcdatamodeld */; };
 		D4D2727C257917EF000558DE /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D27266257917EC000558DE /* YarnApp.swift */; };
@@ -50,6 +60,12 @@
 		D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStreamDecodingTask.swift; sourceTree = "<group>"; };
 		D49F8B85257A853700E8FCBC /* SourceImport + NSDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SourceImport + NSDocument.swift"; sourceTree = "<group>"; };
 		D49F8B93257AA0CD00E8FCBC /* SourceImport + UIDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SourceImport + UIDocument.swift"; sourceTree = "<group>"; };
+		D4CDBC0D2589079000209D54 /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
+		D4CDBC1425890ECF00209D54 /* Import + UIDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Import + UIDocument.swift"; sourceTree = "<group>"; };
+		D4CDBC1925890F1900209D54 /* Import + NSDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Import + NSDocument.swift"; sourceTree = "<group>"; };
+		D4CDBC2225890FB300209D54 /* Import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Import.swift; sourceTree = "<group>"; };
+		D4CDBC272589159300209D54 /* LocationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStorage.swift; sourceTree = "<group>"; };
+		D4CDBC3025892B5C00209D54 /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
 		D4D27265257917EC000558DE /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D4D27266257917EC000558DE /* YarnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnApp.swift; sourceTree = "<group>"; };
 		D4D27267257917EC000558DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -152,6 +168,7 @@
 			children = (
 				D4D27271257917EF000558DE /* Info.plist */,
 				D4F7B00425793CE500B5C558 /* MapView + UIKit.swift */,
+				D4CDBC1425890ECF00209D54 /* Import + UIDocument.swift */,
 				D49F8B93257AA0CD00E8FCBC /* SourceImport + UIDocument.swift */,
 			);
 			path = iOS;
@@ -164,6 +181,7 @@
 				D4D27279257917EF000558DE /* macOS.entitlements */,
 				D4F7B00925793D4200B5C558 /* MapView + AppKit.swift */,
 				D49F8B85257A853700E8FCBC /* SourceImport + NSDocument.swift */,
+				D4CDBC1925890F1900209D54 /* Import + NSDocument.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -172,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				D4D27267257917EC000558DE /* ContentView.swift */,
+				D4CDBC0D2589079000209D54 /* ImportView.swift */,
 				D47ED77C257A441A00F102CC /* Sidebar */,
 				D47ED77F257A442100F102CC /* Content */,
 			);
@@ -186,6 +205,9 @@
 				D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */,
 				D4F7AFF62579263400B5C558 /* SourceImport.swift */,
 				D4D27268257917EC000558DE /* Persistence.swift */,
+				D4CDBC2225890FB300209D54 /* Import.swift */,
+				D4CDBC272589159300209D54 /* LocationStorage.swift */,
+				D4CDBC3025892B5C00209D54 /* Importer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +311,7 @@
 			files = (
 				D4D2727A257917EF000558DE /* Yarn.xcdatamodeld in Sources */,
 				D49F8B94257AA0CD00E8FCBC /* SourceImport + UIDocument.swift in Sources */,
+				D4CDBC3125892B5C00209D54 /* Importer.swift in Sources */,
 				D47ED799257A45B000F102CC /* GoogleMapTimeline + Location.swift in Sources */,
 				D4F7B00025793CC400B5C558 /* MapView.swift in Sources */,
 				D4D27280257917EF000558DE /* Persistence.swift in Sources */,
@@ -296,11 +319,15 @@
 				D4F7B01B2579452F00B5C558 /* PathView.swift in Sources */,
 				D47ED778257945D400F102CC /* SidebarView.swift in Sources */,
 				D47ED788257A44FB00F102CC /* GoogleMapTimelineDecodables.swift in Sources */,
+				D4CDBC2325890FB300209D54 /* Import.swift in Sources */,
+				D4CDBC282589159300209D54 /* LocationStorage.swift in Sources */,
 				D4F7B0142579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4F7AFE6257922C800B5C558 /* SourceList.swift in Sources */,
 				D4D2727C257917EF000558DE /* YarnApp.swift in Sources */,
 				D47ED7A1257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */,
+				D4CDBC0E2589079000209D54 /* ImportView.swift in Sources */,
 				D4F7AFF72579263400B5C558 /* SourceImport.swift in Sources */,
+				D4CDBC1525890ECF00209D54 /* Import + UIDocument.swift in Sources */,
 				D4D2727E257917EF000558DE /* ContentView.swift in Sources */,
 				D4F7AFED2579258900B5C558 /* SourceImportList.swift in Sources */,
 			);
@@ -310,7 +337,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4CDBC1B25890F1900209D54 /* Import + NSDocument.swift in Sources */,
 				D4F7B00B25793D4200B5C558 /* MapView + AppKit.swift in Sources */,
+				D4CDBC3225892B5C00209D54 /* Importer.swift in Sources */,
 				D49F8B87257A853700E8FCBC /* SourceImport + NSDocument.swift in Sources */,
 				D47ED79A257A45B000F102CC /* GoogleMapTimeline + Location.swift in Sources */,
 				D4D2727B257917EF000558DE /* Yarn.xcdatamodeld in Sources */,
@@ -318,11 +347,14 @@
 				D4D27281257917EF000558DE /* Persistence.swift in Sources */,
 				D4F7B01C2579452F00B5C558 /* PathView.swift in Sources */,
 				D47ED779257945D400F102CC /* SidebarView.swift in Sources */,
+				D4CDBC2425890FB300209D54 /* Import.swift in Sources */,
+				D4CDBC292589159300209D54 /* LocationStorage.swift in Sources */,
 				D47ED789257A44FB00F102CC /* GoogleMapTimelineDecodables.swift in Sources */,
 				D4F7B0152579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4F7AFE7257922C800B5C558 /* SourceList.swift in Sources */,
 				D4D2727D257917EF000558DE /* YarnApp.swift in Sources */,
 				D47ED7A2257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */,
+				D4CDBC0F2589079000209D54 /* ImportView.swift in Sources */,
 				D4F7AFF82579263400B5C558 /* SourceImport.swift in Sources */,
 				D4D2727F257917EF000558DE /* ContentView.swift in Sources */,
 				D4F7AFEE2579258900B5C558 /* SourceImportList.swift in Sources */,

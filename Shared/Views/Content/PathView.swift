@@ -12,8 +12,9 @@ struct PathView: View {
     private var locations: FetchedResults<Location>
     
     var body: some View {
-        MapView(path: locations.map(\.coordinate))
-            .ignoresSafeArea()
+        ZStack(alignment: .bottomLeading) {
+            MapView(path: locations.map(\.coordinate)).ignoresSafeArea()
+        }
     }
 }
 

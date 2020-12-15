@@ -58,10 +58,9 @@ class JSONStreamDecodingTask<Object: Decodable> {
                 try decodeNextObject()
             } catch {
                 subject.send(completion: .failure(error))
-                return
+                break
             }
         }
-        
         readBuffer.deallocate()
         remainderBuffer.deallocate()
         subject.send(completion: .finished)

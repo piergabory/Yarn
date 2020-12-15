@@ -4,7 +4,13 @@
         <attribute name="latitude" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="visits" inverseEntity="Place"/>
         <relationship name="source" maxCount="1" deletionRule="Nullify" destinationEntity="Source" inverseName="locations" inverseEntity="Source"/>
+    </entity>
+    <entity name="Place" representedClassName="Place" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" usesScalarValueType="YES"/>
+        <relationship name="visits" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="place" inverseEntity="Location"/>
     </entity>
     <entity name="Source" representedClassName=".Source" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="-978310800" usesScalarValueType="NO"/>
@@ -12,7 +18,8 @@
         <relationship name="locations" toMany="YES" minCount="1" deletionRule="Cascade" destinationEntity="Location" inverseName="source" inverseEntity="Location"/>
     </entity>
     <elements>
-        <element name="Location" positionX="-63" positionY="-18" width="128" height="89"/>
-        <element name="Source" positionX="-63" positionY="9" width="128" height="74"/>
+        <element name="Location" positionX="41.012939453125" positionY="354.503662109375" width="128" height="118"/>
+        <element name="Source" positionX="-163.95166015625" positionY="384.1450500488281" width="128" height="88"/>
+        <element name="Place" positionX="266.8985595703125" positionY="369.4088134765625" width="128" height="88"/>
     </elements>
 </model>
