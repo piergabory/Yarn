@@ -19,9 +19,9 @@ struct SourceImportList: View {
             Section(header: Text("Imports")) {
                 ForEach(imports) { runningImport in
                     VStack(alignment: .trailing) {
-                        SourceImportView(runningImport)
-                        Button("cancel") { imports.removeAll { runningImport.id == $0.id } }
-                            .foregroundColor(.red)
+                        SourceImportView(runningImport) {
+                            imports.removeAll { runningImport.id == $0.id }
+                        }
                     }
                 }
                 .onDelete(perform: delete(at:))
@@ -38,17 +38,34 @@ struct SourceImportList: View {
 
 private struct SourceImportView: View {
     @ObservedObject var sourceImport: SourceImport
+    let cancel: () -> Void
     
-    init(_ sourceImport: SourceImport) {
+    init(_ sourceImport: SourceImport, cancel: @escaping () -> Void) {
         self.sourceImport = sourceImport
+        self.cancel = cancel
     }
     
     var body: some View {
-        ProgressView(value: sourceImport.progress) {
-            Text(sourceImport.fileName)
+        VStack {
+            ProgressView(value: sourceImport.progress) {
+                Text(sourceImport.fileName)
+            }
+                .progressViewStyle(LinearProgressViewStyle())
                 .font(.headline)
+            HStack {
+                Text(percentage)
+                Text("-")
+                Text("Found \(sourceImport.foundLocations) locations")
+                Spacer()
+                Button("cancel", action: cancel).foregroundColor(.red)
+            }
+                .font(.subheadline)
+                .foregroundColor(.secondary)
         }
-            .progressViewStyle(LinearProgressViewStyle())
+    }
+    
+    private var percentage: String {
+        NSString(format: #"%3.1f%%"#, sourceImport.progress * 100) as String
     }
 }
 

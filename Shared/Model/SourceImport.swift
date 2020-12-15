@@ -22,6 +22,7 @@ class SourceImport: ObservableObject, Identifiable {
     private let managedObjectContext: NSManagedObjectContext
     
     @Published private var readBytes = 0
+    @Published private(set) var foundLocations = 0
     
     let filePath: URL
     
@@ -55,17 +56,29 @@ class SourceImport: ObservableObject, Identifiable {
         decodingTask.execute()
             .collect(.byTime(processingQueue, .milliseconds(500)))
             .map { [managedObjectContext] in $0.insert(in: managedObjectContext) }
-            .sink { completion in
-                print(completion)
-            } receiveValue: { [weak self] locations in
-                self?.source.locations?.addingObjects(from: locations)
-            }
+            .sink(receiveCompletion: handle(completion:), receiveValue: handle(batch:))
             .store(in: &cancellableSet)
         
         decodingTask.$progress
             .throttle(for: .milliseconds(30), scheduler: RunLoop.main, latest: true)
             .assign(to: \.readBytes, on: self)
             .store(in: &cancellableSet)
+    }
+    
+    private func handle(completion: Subscribers.Completion<Error>) {
+        print(completion)
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func handle(batch locations: [Location]) {
+        source.locations?.addingObjects(from: locations)
+        DispatchQueue.main.async {
+            self.foundLocations += locations.count
+        }
     }
     
     private func createSource() -> Source {
