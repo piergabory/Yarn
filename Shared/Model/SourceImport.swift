@@ -16,7 +16,7 @@ class SourceImport: ObservableObject, Identifiable {
     
     private var cancellableSet: Set<AnyCancellable> = []
     
-    private lazy var fileByteSize = readSourceFileSize()
+    private var fileByteSize = 0
     private lazy var source = createSource()
     
     private let managedObjectContext: NSManagedObjectContext
@@ -34,6 +34,7 @@ class SourceImport: ObservableObject, Identifiable {
         
         let coordinator = NSFileCoordinator(filePresenter: filePresenter)
         coordinator.coordinate(readingItemAt: filePath, options: .withoutChanges, error: nil) { url in
+            fileByteSize = readSourceFileSize()
             guard let stream = InputStream(url: url) else { return }
             decodingQueue.async { [weak self] in
                 self?.decode(stream: stream)
