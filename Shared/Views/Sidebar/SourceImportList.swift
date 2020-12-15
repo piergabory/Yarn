@@ -24,8 +24,14 @@ struct SourceImportList: View {
                             .foregroundColor(.red)
                     }
                 }
-                .onDelete { imports.remove(atOffsets: $0) }
+                .onDelete(perform: delete(at:))
             }
+        }
+    }
+    
+    private func delete(at indices: IndexSet) {
+        for index in indices {
+            imports.remove(at: index).cancel()
         }
     }
 }

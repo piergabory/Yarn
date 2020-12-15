@@ -16,7 +16,7 @@ class SourceImport: ObservableObject, Identifiable {
     
     private var cancellableSet: Set<AnyCancellable> = []
     
-    private lazy var fileByteSize = getSourceFileSize()
+    private lazy var fileByteSize = readSourceFileSize()
     private lazy var source = createSource()
     
     private let managedObjectContext: NSManagedObjectContext
@@ -40,6 +40,12 @@ class SourceImport: ObservableObject, Identifiable {
             }
         }
     }
+    
+    func cancel() {
+        cancellableSet.forEach { $0.cancel() }
+    }
+    
+    // MARK: - Private
     
     private func decode(stream: InputStream) {
         stream.open()
@@ -68,7 +74,7 @@ class SourceImport: ObservableObject, Identifiable {
         return source
     }
     
-    private func getSourceFileSize() -> Int {
+    private func readSourceFileSize() -> Int {
         do {
             let attributes = try FileManager.default.attributesOfItem(atPath: filePath.path)
             return attributes[.size] as! Int

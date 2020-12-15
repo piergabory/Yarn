@@ -17,6 +17,7 @@ class JSONStreamDecodingTask<Object: Decodable> {
     private let decoder = JSONDecoder()
     private let stream: InputStream
     private let shouldSkipToArrayBracket: Bool
+    private var isCancelled = false
     
     // MARK: Buffers
     
@@ -27,7 +28,7 @@ class JSONStreamDecodingTask<Object: Decodable> {
     
     // MARK: Publishers
     
-    let subject = PassthroughSubject<Object, Error>()
+    private let subject = PassthroughSubject<Object, Error>()
     @Published var progress = 0
     
     
@@ -40,9 +41,11 @@ class JSONStreamDecodingTask<Object: Decodable> {
     
     func execute() -> AnyPublisher<Object, Error> {
         DispatchQueue.global(qos: .utility).async(execute: task)
-        return subject.eraseToAnyPublisher()
+        return subject
+            .handleEvents(receiveCancel: { self.isCancelled = true })
+            .share()
+            .eraseToAnyPublisher()
     }
-    
     
     // MARK: - Decoding Task
     
