@@ -45,6 +45,8 @@
 		D4F7B00B25793D4200B5C558 /* MapView + AppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B00925793D4200B5C558 /* MapView + AppKit.swift */; };
 		D4F7B0142579406200B5C558 /* Location + CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B0132579406100B5C558 /* Location + CLLocation.swift */; };
 		D4F7B0152579406200B5C558 /* Location + CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7B0132579406100B5C558 /* Location + CLLocation.swift */; };
+		D4FCD10A258A4D4200279B78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FCD109258A4D4200279B78 /* MapViewModel.swift */; };
+		D4FCD10B258A4D4200279B78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FCD109258A4D4200279B78 /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,7 @@
 		D4F7B00425793CE500B5C558 /* MapView + UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView + UIKit.swift"; sourceTree = "<group>"; };
 		D4F7B00925793D4200B5C558 /* MapView + AppKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView + AppKit.swift"; sourceTree = "<group>"; };
 		D4F7B0132579406100B5C558 /* Location + CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location + CLLocation.swift"; sourceTree = "<group>"; };
+		D4FCD109258A4D4200279B78 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,16 +175,25 @@
 		D4F7B0122579405800B5C558 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D47ED79D257A464400F102CC /* GoogleMapTimeline */,
 				D4F7B0132579406100B5C558 /* Location + CLLocation.swift */,
-				D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */,
 				D4F7AFF62579263400B5C558 /* SourceImport.swift */,
 				D4D27268257917EC000558DE /* Persistence.swift */,
-				D4CDBC2225890FB300209D54 /* Import.swift */,
-				D4CDBC272589159300209D54 /* LocationStorage.swift */,
-				D4CDBC3025892B5C00209D54 /* Importer.swift */,
+				D4FCD104258A4C4F00279B78 /* Import */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D4FCD104258A4C4F00279B78 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				D47ED79D257A464400F102CC /* GoogleMapTimeline */,
+				D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */,
+				D4CDBC272589159300209D54 /* LocationStorage.swift */,
+				D4CDBC2225890FB300209D54 /* Import.swift */,
+				D4CDBC3025892B5C00209D54 /* Importer.swift */,
+				D4FCD109258A4D4200279B78 /* MapViewModel.swift */,
+			);
+			path = Import;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +304,7 @@
 				D47ED788257A44FB00F102CC /* GoogleMapTimelineDecodables.swift in Sources */,
 				D4CDBC2325890FB300209D54 /* Import.swift in Sources */,
 				D4CDBC282589159300209D54 /* LocationStorage.swift in Sources */,
+				D4FCD10A258A4D4200279B78 /* MapViewModel.swift in Sources */,
 				D4F7B0142579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4D2727C257917EF000558DE /* YarnApp.swift in Sources */,
 				D47ED7A1257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */,
@@ -317,6 +330,7 @@
 				D4D27281257917EF000558DE /* Persistence.swift in Sources */,
 				D4CDBC2425890FB300209D54 /* Import.swift in Sources */,
 				D4CDBC292589159300209D54 /* LocationStorage.swift in Sources */,
+				D4FCD10B258A4D4200279B78 /* MapViewModel.swift in Sources */,
 				D47ED789257A44FB00F102CC /* GoogleMapTimelineDecodables.swift in Sources */,
 				D4F7B0152579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4D2727D257917EF000558DE /* YarnApp.swift in Sources */,
