@@ -31,6 +31,7 @@ class Import: ObservableObject {
     
     func store(managedObjectContext: NSManagedObjectContext) {
         locationStorage = LocationStorage(managedObjectContext: managedObjectContext)
+        locationStorage.startImport(sourceFile: fileName)
         decode(stream: stream)
     }
     
