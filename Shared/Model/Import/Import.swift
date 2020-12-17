@@ -62,6 +62,13 @@ class Import: ObservableObject {
         DispatchQueue.global(qos: .utility).async {
             self.cleanupTask.cleanSource()
         }
+        progress = Progress(totalUnitCount: Int64(cleanupTask.totalLocationCount))
+        cleanupTask.locationsProcessedCount
+            .throttle(for: .milliseconds(300), scheduler: RunLoop.main, latest: true)
+            .map(Int64.init)
+            .handleEvents(receiveOutput: { _ in self.objectWillChange.send() })
+            .assign(to: \Progress.completedUnitCount, on: progress)
+            .store(in: &cancellables)
     }
     
     private func handle(value: [GoogleMapTimeline.Location]) {
