@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D475B1F1258B78BB0099FF5D /* SourceCleanup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475B1F0258B78BB0099FF5D /* SourceCleanup.swift */; };
+		D475B1F2258B78BB0099FF5D /* SourceCleanup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475B1F0258B78BB0099FF5D /* SourceCleanup.swift */; };
+		D475B1FA258B9E6F0099FF5D /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475B1F9258B9E6F0099FF5D /* Source.swift */; };
+		D475B1FB258B9E6F0099FF5D /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475B1F9258B9E6F0099FF5D /* Source.swift */; };
 		D47ED788257A44FB00F102CC /* GoogleMapTimelineDecodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED785257A44FB00F102CC /* GoogleMapTimelineDecodables.swift */; };
 		D47ED789257A44FB00F102CC /* GoogleMapTimelineDecodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED785257A44FB00F102CC /* GoogleMapTimelineDecodables.swift */; };
 		D47ED799257A45B000F102CC /* GoogleMapTimeline + Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47ED798257A45B000F102CC /* GoogleMapTimeline + Location.swift */; };
@@ -50,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D475B1F0258B78BB0099FF5D /* SourceCleanup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCleanup.swift; sourceTree = "<group>"; };
+		D475B1F9258B9E6F0099FF5D /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		D47ED785257A44FB00F102CC /* GoogleMapTimelineDecodables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapTimelineDecodables.swift; sourceTree = "<group>"; };
 		D47ED798257A45B000F102CC /* GoogleMapTimeline + Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoogleMapTimeline + Location.swift"; sourceTree = "<group>"; };
 		D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStreamDecodingTask.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 		D4F7B0122579405800B5C558 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D475B1F9258B9E6F0099FF5D /* Source.swift */,
 				D4F7B0132579406100B5C558 /* Location + CLLocation.swift */,
 				D4F7AFF62579263400B5C558 /* SourceImport.swift */,
 				D4D27268257917EC000558DE /* Persistence.swift */,
@@ -189,6 +196,7 @@
 				D47ED79D257A464400F102CC /* GoogleMapTimeline */,
 				D47ED7A0257A465B00F102CC /* JSONStreamDecodingTask.swift */,
 				D4CDBC272589159300209D54 /* LocationStorage.swift */,
+				D475B1F0258B78BB0099FF5D /* SourceCleanup.swift */,
 				D4CDBC2225890FB300209D54 /* Import.swift */,
 				D4CDBC3025892B5C00209D54 /* Importer.swift */,
 				D4FCD109258A4D4200279B78 /* MapViewModel.swift */,
@@ -303,12 +311,14 @@
 				D4F7B00525793CE500B5C558 /* MapView + UIKit.swift in Sources */,
 				D47ED788257A44FB00F102CC /* GoogleMapTimelineDecodables.swift in Sources */,
 				D4CDBC2325890FB300209D54 /* Import.swift in Sources */,
+				D475B1F1258B78BB0099FF5D /* SourceCleanup.swift in Sources */,
 				D4CDBC282589159300209D54 /* LocationStorage.swift in Sources */,
 				D4FCD10A258A4D4200279B78 /* MapViewModel.swift in Sources */,
 				D4F7B0142579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4D2727C257917EF000558DE /* YarnApp.swift in Sources */,
 				D47ED7A1257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */,
 				D4CDBC0E2589079000209D54 /* ImportView.swift in Sources */,
+				D475B1FA258B9E6F0099FF5D /* Source.swift in Sources */,
 				D4F7AFF72579263400B5C558 /* SourceImport.swift in Sources */,
 				D4CDBC1525890ECF00209D54 /* Import + UIDocument.swift in Sources */,
 				D4D2727E257917EF000558DE /* ContentView.swift in Sources */,
@@ -329,12 +339,14 @@
 				D4F7B00125793CC500B5C558 /* MapView.swift in Sources */,
 				D4D27281257917EF000558DE /* Persistence.swift in Sources */,
 				D4CDBC2425890FB300209D54 /* Import.swift in Sources */,
+				D475B1F2258B78BB0099FF5D /* SourceCleanup.swift in Sources */,
 				D4CDBC292589159300209D54 /* LocationStorage.swift in Sources */,
 				D4FCD10B258A4D4200279B78 /* MapViewModel.swift in Sources */,
 				D47ED789257A44FB00F102CC /* GoogleMapTimelineDecodables.swift in Sources */,
 				D4F7B0152579406200B5C558 /* Location + CLLocation.swift in Sources */,
 				D4D2727D257917EF000558DE /* YarnApp.swift in Sources */,
 				D47ED7A2257A465B00F102CC /* JSONStreamDecodingTask.swift in Sources */,
+				D475B1FB258B9E6F0099FF5D /* Source.swift in Sources */,
 				D4CDBC0F2589079000209D54 /* ImportView.swift in Sources */,
 				D4F7AFF82579263400B5C558 /* SourceImport.swift in Sources */,
 				D4D2727F257917EF000558DE /* ContentView.swift in Sources */,

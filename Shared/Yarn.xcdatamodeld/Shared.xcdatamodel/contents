@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Location" representedClassName=".Location" syncable="YES" codeGenerationType="class">
         <attribute name="latitude" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" usesScalarValueType="YES"/>
@@ -19,7 +19,7 @@
     </entity>
     <elements>
         <element name="Location" positionX="41.012939453125" positionY="354.503662109375" width="128" height="118"/>
-        <element name="Source" positionX="-163.95166015625" positionY="384.1450500488281" width="128" height="88"/>
         <element name="Place" positionX="266.8985595703125" positionY="369.4088134765625" width="128" height="88"/>
+        <element name="Source" positionX="-163.95166015625" positionY="384.1450500488281" width="128" height="88"/>
     </elements>
 </model>

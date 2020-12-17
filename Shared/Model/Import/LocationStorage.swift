@@ -23,7 +23,7 @@ struct LocationStorage {
     func store(locations: [GoogleMapTimeline.Location]) {
         managedObjectContext.perform {
             let storedLocations = locations.insert(in: managedObjectContext)
-            currentSource.locations?.addingObjects(from: storedLocations)
+            currentSource.addToLocations(NSSet(array: storedLocations))
             storedLocations.forEach { $0.source = currentSource }
             save()
         }

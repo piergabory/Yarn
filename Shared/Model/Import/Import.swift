@@ -15,6 +15,7 @@ class Import: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     private var locationStorage: LocationStorage!
+    private var cleanupTask: SourceCleanup!
     private var stream: InputStream!
     
     private(set) var progress: Progress!
@@ -32,6 +33,7 @@ class Import: ObservableObject {
     func store(managedObjectContext: NSManagedObjectContext) {
         locationStorage = LocationStorage(managedObjectContext: managedObjectContext)
         locationStorage.startImport(sourceFile: fileName)
+        cleanupTask  = SourceCleanup(managedObjectContext: managedObjectContext, source: locationStorage.currentSource)
         decode(stream: stream)
     }
     
@@ -57,6 +59,9 @@ class Import: ObservableObject {
     private func handle(completion: Subscribers.Completion<Error>) {
         print(completion)
         stream.close()
+        DispatchQueue.global(qos: .utility).async {
+            self.cleanupTask.cleanSource()
+        }
     }
     
     private func handle(value: [GoogleMapTimeline.Location]) {
