@@ -20,6 +20,7 @@ public final class LocationDatabase {
     private let persistentContainer: NSPersistentContainer
     private lazy var transactionContext = persistentContainer.newBackgroundContext()
     
+    public var viewContext: NSManagedObjectContext { persistentContainer.viewContext }
     public static let main = try! LocationDatabase()
     
     public init() throws {
