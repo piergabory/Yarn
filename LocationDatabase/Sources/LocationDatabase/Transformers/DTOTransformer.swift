@@ -8,19 +8,22 @@
 import CoreData
 import Foundation
 
-typealias DTOTransformer = DTOConvertor & DTOUpdator
+enum DTOUpdatorError: Error {
+    case invalidDatabaseObject(NSManagedObject)
+}
+
+public typealias DTOTransformer = DTOConvertor & DTOUpdator
 
 public protocol DTOConvertor {
     associatedtype DBO: NSManagedObject
     associatedtype DTO
 
-    func convert(_: DBO) -> DTO
-    func update(_: DBO, with: DTO)
+    func convert(_: DBO) throws -> DTO
 }
 
 public protocol DTOUpdator {
     associatedtype DBO: NSManagedObject
     associatedtype DTO
 
-    func update(_: DBO, with: DTO)
+    func update(_: DBO, with: DTO) throws
 }

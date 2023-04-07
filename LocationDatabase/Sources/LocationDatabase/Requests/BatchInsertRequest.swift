@@ -20,7 +20,11 @@ public struct BatchInsertRequest<Updator: DTOUpdator>: Request {
             let dbObject = managedObject as? Updator.DBO
             let dto = dataIterator.next()
             if let dbObject, let dto {
-                updator.update(dbObject, with: dto)
+                do {
+                    try updator.update(dbObject, with: dto)
+                } catch {
+                    print(error)
+                }
                 return false
             } else {
                 return true

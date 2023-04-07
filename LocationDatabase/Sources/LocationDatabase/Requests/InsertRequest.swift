@@ -15,7 +15,7 @@ public struct InsertRequest<Updator: DTOUpdator>: Request {
     public func execute(in context: NSManagedObjectContext) async throws -> Void {
         try await context.perform {
             let dbObject = Updator.DBO(context: context)
-            updator.update(dbObject, with: dto)
+            try updator.update(dbObject, with: dto)
             try context.save()
         }
     }

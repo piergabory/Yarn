@@ -75,7 +75,7 @@ public struct JSONLocationFileImportService<Deserializer: JSONObjectDeserializer
             batch.append(datum)
             if batch.count > Constants.batchSize {
                 deserializationProgress.completedUnitCount += 1
-                let request = BatchInsertLocationDataRequest(data: batch)
+                let request = BatchLocationDatumInsertRequest(data: batch)
                 try await database.execute(request)
                 deserializationProgress.completedUnitCount += Constants.batchSize
                 batch = []
