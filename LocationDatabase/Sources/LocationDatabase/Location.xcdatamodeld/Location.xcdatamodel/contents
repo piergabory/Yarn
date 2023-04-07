@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DBImportSource" representedClassName="DBImportSource" syncable="YES" codeGenerationType="class">
+        <attribute name="fileURL" optional="YES" attributeType="URI"/>
+        <attribute name="importDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="data" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBLocationDatum" inverseName="source" inverseEntity="DBLocationDatum"/>
+    </entity>
     <entity name="DBLocationDatum" representedClassName="DBLocationDatum" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBImportSource" inverseName="data" inverseEntity="DBImportSource"/>
     </entity>
 </model>
