@@ -14,6 +14,7 @@ public struct JSONLocationFileImportService<Deserializer: JSONObjectDeserializer
         case unexpectedFileAttributeType
     }
 
+    private let importSource: ImportSource
     private let fileStream: InputStream
     private let fileDeserializer: JSONStreamDeserializer<Deserializer>
     private let fileStreamProgress: Progress?
@@ -22,6 +23,7 @@ public struct JSONLocationFileImportService<Deserializer: JSONObjectDeserializer
     public let progress = Progress(totalUnitCount: 100)
     
     public init(fileURL: URL, fileDeserializer: JSONStreamDeserializer<Deserializer>, database: LocationDatabase = .main) throws {
+        importSource = ImportSource(fileURL: fileURL, importDate: .now)
         guard let fileStream = InputStream(url: fileURL) else { throw ImportError.failedToOpenFile }
         
         self.fileStream = fileStream
@@ -41,6 +43,7 @@ public struct JSONLocationFileImportService<Deserializer: JSONObjectDeserializer
     public func load() async throws {
         let dataStream = try await deserializeFile()
         try await saveOutput(of: dataStream)
+        try await logImportSource()
     }
     
     // MARK: - Private
@@ -88,5 +91,10 @@ public struct JSONLocationFileImportService<Deserializer: JSONObjectDeserializer
         guard let offsetNSNumber = fileStream.property(forKey: .fileCurrentOffsetKey) as? NSNumber else { return }
         let offset = offsetNSNumber.int64Value
         fileStreamProgress?.completedUnitCount = offset
+    }
+    
+    private func logImportSource() async throws {
+        let request = InsertImportSourceRequest(importSource: importSource)
+        try await database.execute(request)
     }
 }

@@ -9,6 +9,14 @@ import CoreData
 import DataTransferObjects
 import Foundation
 
+public typealias InsertImportSourceRequest = InsertRequest<ImportSourceTransformer>
+
+public extension InsertImportSourceRequest {
+    init(importSource: ImportSource) {
+        self.init(updator: ImportSourceTransformer(), dto: importSource)
+    }
+}
+
 public struct ImportSourceTransformer: DTOTransformer {
     
     public func convert(_ dbImportSource: DBImportSource) throws -> ImportSource {

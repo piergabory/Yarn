@@ -19,7 +19,6 @@ public extension GoogleTimelineDeserializer {
     }
 }
 
-
 // Map Google location data item to shared dto
 public struct GoogleTimelineLocationDatumDeserializer: JSONObjectDeserializer {
     

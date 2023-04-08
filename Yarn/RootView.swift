@@ -22,6 +22,13 @@ struct RootView: View {
                 }
         }
         .environment(\.managedObjectContext, locationDatabase.viewContext)
+        .task {
+            do {
+                try await locationDatabase.loadPersistentStores()
+            } catch {
+                print("Error Loading Persistent Stores\n\(error)")
+            }
+        }
     }
 }
 

@@ -40,10 +40,10 @@ public final class LocationDatabase {
         if didLoadPersistentStores == false {
             try await loadPersistentStores()
         }
-        return try await request.execute(in: transactionContext)
+        return try await request.execute(in: viewContext)
     }
     
-    func loadPersistentStores() async throws {
+    public func loadPersistentStores() async throws {
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Swift.Error>) in
             persistentContainer.loadPersistentStores { [weak self] _, error in
                 if let error {
