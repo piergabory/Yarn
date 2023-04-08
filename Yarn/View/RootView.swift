@@ -7,6 +7,7 @@
 
 import SwiftUI
 import LocationDatabase
+import MapView
 
 struct RootView: View {
     
@@ -14,10 +15,21 @@ struct RootView: View {
     
     var body: some View {
         NavigationStack {
-            FileImportView()
+            MapView()
+                .toolbarBackground(.visible, for: .automatic)
+                .edgesIgnoringSafeArea(.all)
                 .toolbar {
-                    NavigationLink("Statistics") {
+                    NavigationLink {
                         StatisticsView()
+                            .navigationTitle("Statistics")
+                    } label: {
+                        Label("Statistics", systemImage: "chart.pie.fill")
+                    }
+                    NavigationLink {
+                        FileImportView()
+                            .navigationTitle("File Import")
+                    } label: {
+                        Label("Imports", systemImage: "square.and.arrow.down.on.square")
                     }
                 }
         }

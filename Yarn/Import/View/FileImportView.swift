@@ -26,7 +26,9 @@ struct FileImportView: View {
             )
         }
         .toolbar {
-            Button("Select File") { isFileImporterPresented = true }
+            Button { isFileImporterPresented = true } label: {
+                Label("Import File", systemImage: "plus")
+            }
         }
         .fileImporter(
             isPresented: $isFileImporterPresented,
