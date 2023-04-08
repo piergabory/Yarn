@@ -4,11 +4,22 @@
         <attribute name="fileURL" optional="YES" attributeType="URI"/>
         <attribute name="importDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="data" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBLocationDatum" inverseName="source" inverseEntity="DBLocationDatum"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="fileURL"/>
+                <constraint value="importDate"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="DBLocationDatum" representedClassName="DBLocationDatum" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBImportSource" inverseName="data" inverseEntity="DBImportSource"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="date"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
 </model>
