@@ -7,7 +7,6 @@
 
 import SwiftUI
 import LocationDatabase
-import MapView
 
 struct RootView: View {
     
@@ -15,7 +14,7 @@ struct RootView: View {
     
     var body: some View {
         NavigationStack {
-            MapView()
+            TimelineExplorerView()
                 .toolbarBackground(.visible, for: .automatic)
                 .edgesIgnoringSafeArea(.all)
                 .toolbar {

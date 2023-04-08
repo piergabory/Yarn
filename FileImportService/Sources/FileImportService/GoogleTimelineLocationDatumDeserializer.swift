@@ -49,8 +49,8 @@ public struct GoogleTimelineLocationDatumDeserializer: JSONObjectDeserializer {
         else { throw DatumDeserializationError.invalidObject(jsonObject.description) }
         
         return LocationDatum(
-            latitude: Double(latitude) / 10e7,
-            longitude: Double(longitude) / 10e7,
+            latitude: Double(latitude) / 10e6,
+            longitude: Double(longitude) / 10e6,
             date: try decode(timestampString: timestamp)
         )
     }

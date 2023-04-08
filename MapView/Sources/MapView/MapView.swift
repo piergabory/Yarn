@@ -3,12 +3,22 @@ import SwiftUI
 
 public struct MapView: UIViewRepresentable {
     
-    public init() {
+    private let preferredConfiguration: MKMapConfiguration
+    private let selectableMapFeatures: MKMapFeatureOptions
 
+    public init(
+        preferredConfiguration: MKMapConfiguration = MKStandardMapConfiguration(),
+        selectableMapFeatures: MKMapFeatureOptions = []
+    ) {
+        self.preferredConfiguration = preferredConfiguration
+        self.selectableMapFeatures = selectableMapFeatures
     }
     
     public func makeUIView(context: Context) -> MKMapView {
-        MKMapView()
+        let mkMapView = MKMapView()
+        mkMapView.preferredConfiguration = preferredConfiguration
+        mkMapView.selectableMapFeatures = selectableMapFeatures
+        return mkMapView
     }
 
     public func updateUIView(_ mkMapView: MKMapView, context: Context) {
