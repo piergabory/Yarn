@@ -15,7 +15,7 @@ struct NullLocationFilter: LocationDataProcessorCommand {
         let predicateQuery = "latitude < -0.01 AND latitude > 0.01 AND longitude < -0.01 AND longitude > 0.01"
 
         let result = try await dbContext.perform {
-            print("Started ")
+            print("Started clearing Null points")
             
             let filterRequest = NSFetchRequest<NSFetchRequestResult>()
             filterRequest.entity = DBLocationDatum.entity()

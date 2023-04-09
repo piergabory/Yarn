@@ -9,7 +9,7 @@ public struct LocationDataProcessor {
     private let commands: [LocationDataProcessorCommand]
     
     public init(context: NSManagedObjectContext) {
-        self.init(context: context, commands: [NullLocationFilter()])
+        self.init(context: context, commands: [NullLocationFilter(), HighSpeedFilter()])
     }
     
     init(context: NSManagedObjectContext, commands: [LocationDataProcessorCommand]) {
