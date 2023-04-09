@@ -14,9 +14,7 @@ struct RootView: View {
     
     var body: some View {
         NavigationStack {
-            TimelineExplorerView()
-                .toolbarBackground(.visible, for: .automatic)
-                .edgesIgnoringSafeArea(.all)
+            PathExplorerView()
                 .toolbar {
                     NavigationLink {
                         StatisticsView()

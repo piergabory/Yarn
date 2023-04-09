@@ -9,11 +9,19 @@ import MapKit
 import SwiftUI
 
 public struct PathView: UIViewRepresentable {
+    public struct Coordinator {
+        let delegate = PathMapViewDelegate()
+    }
+    
     private let delegate = PathMapViewDelegate()
     private let path: [CLLocationCoordinate2D]
-    
+
     public init(path: [CLLocationCoordinate2D]) {
         self.path = path
+    }
+    
+    public func makeCoordinator() -> Coordinator {
+        Coordinator()
     }
 
     public func makeUIView(context: Context) -> MKMapView {
@@ -22,7 +30,7 @@ public struct PathView: UIViewRepresentable {
             elevationStyle: .realistic,
             emphasisStyle: .muted
         )
-        mkMapView.delegate = delegate
+        mkMapView.delegate = context.coordinator.delegate
         if path.isEmpty == false {
             let overlay = MKGeodesicPolyline(coordinates: path, count: path.count)
             mkMapView.addOverlay(overlay, level: .aboveRoads)
@@ -31,6 +39,8 @@ public struct PathView: UIViewRepresentable {
     }
 
     public func updateUIView(_ mkMapView: MKMapView, context: Context) {
+        mkMapView.delegate = context.coordinator.delegate
+        mkMapView.removeOverlays(mkMapView.overlays)
         if path.isEmpty == false {
             let overlay = MKGeodesicPolyline(coordinates: path, count: path.count)
             mkMapView.addOverlay(overlay, level: .aboveRoads)
@@ -38,7 +48,7 @@ public struct PathView: UIViewRepresentable {
     }
 }
 
-private class PathMapViewDelegate: NSObject, MKMapViewDelegate {
+class PathMapViewDelegate: NSObject, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         switch overlay {
