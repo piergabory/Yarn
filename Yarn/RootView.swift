@@ -17,6 +17,12 @@ struct RootView: View {
             PathExplorerView()
                 .toolbar {
                     NavigationLink {
+                        ProcessingView()
+                            .navigationTitle("Data Processing")
+                    } label: {
+                        Label("Data Processing", systemImage: "trash.fill")
+                    }
+                    NavigationLink {
                         StatisticsView()
                             .navigationTitle("Statistics")
                     } label: {

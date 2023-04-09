@@ -15,7 +15,6 @@ struct DateIntervalPicker: View {
             DatePicker("Start", selection: $selection.start)
             DatePicker("End", selection: $selection.end)
         }
-        .datePickerStyle(.compact)
     }
 }
 

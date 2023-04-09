@@ -22,7 +22,6 @@ struct PathExplorerView: View {
             DateIntervalPicker(selection: $model.dateInterval)
                 .padding()
                 .background(.regularMaterial)
-                .border(.bar)
         }
         .onAppear {
             model.managedObjectContext = dbContext
