@@ -27,8 +27,14 @@ public struct FetchRequest<Convertor: DTOConvertor>: Request {
     }
     
     @discardableResult
-    func set(predicate: NSPredicate) -> Self {
-        request.predicate = predicate
+    func set(predicate newPredicate: NSPredicate) -> Self {
+        if let previousRedicate = request.predicate {
+            request.predicate = NSCompoundPredicate(
+                andPredicateWithSubpredicates: [previousRedicate, newPredicate]
+            )
+        } else {
+            request.predicate = newPredicate
+        }
         return self
     }
     

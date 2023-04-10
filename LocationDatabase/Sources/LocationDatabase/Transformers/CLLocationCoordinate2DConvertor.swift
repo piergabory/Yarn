@@ -25,13 +25,18 @@ public extension CLLocationCoordinate2DFetchRequest {
             dateInterval.end as NSDate
         ))
     }
+    
+    func filterNullPoints() -> Self {
+        let format = "latitude > -0.01 AND latitude < 0.01 AND longitude > -0.01 AND longitude < 0.01"
+        return set(predicate: NSPredicate(format: format))
+    }
 }
 
 public struct CLLocationCoordinate2DConvertor: DTOConvertor {
-    public func convert(_ dbCoordinates: DBTimedCoordinates) throws -> CLLocationCoordinate2D {
+    public func convert(_ dbDatum: DBLocationDatum) throws -> CLLocationCoordinate2D {
         CLLocationCoordinate2D(
-            latitude: dbCoordinates.latitude,
-            longitude: dbCoordinates.longitude
+            latitude: dbDatum.latitude,
+            longitude: dbDatum.longitude
         )
     }
 }

@@ -20,8 +20,18 @@ struct StatisticsView: View {
     @SwiftUI.FetchRequest(sortDescriptors: [SortDescriptor(\.importDate, order: .forward)])
     private var sources: FetchedResults<DBImportSource>
     
+    @SwiftUI.FetchRequest(sortDescriptors: [SortDescriptor(\.startDate, order: .forward)])
+    private var paths: FetchedResults<DBPath>
+    
     var body: some View {
         List {
+            Section {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Total paths.")
+                    Text(paths.endIndex, format: .number)
+                        .fontWeight(.bold)
+                }
+            }
             Section {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Total location coordinatess.")

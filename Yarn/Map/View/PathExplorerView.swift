@@ -16,7 +16,7 @@ struct PathExplorerView: View {
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            PathView(path: model.path)
+            PathView(paths: model.paths)
                 .toolbarBackground(.visible, for: .automatic)
                 .edgesIgnoringSafeArea(.all)
             DateIntervalPicker(selection: $model.dateInterval)

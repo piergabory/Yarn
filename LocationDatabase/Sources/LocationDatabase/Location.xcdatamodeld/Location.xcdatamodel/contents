@@ -18,7 +18,6 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="path" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBPath" inverseName="locationData" inverseEntity="DBPath"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="date"/>
@@ -26,11 +25,17 @@
         </uniquenessConstraints>
     </entity>
     <entity name="DBPath" representedClassName="DBPath" syncable="YES" codeGenerationType="class">
-        <attribute name="averageSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="distance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="locationData" toMany="YES" deletionRule="Nullify" destinationEntity="DBLocationDatum" inverseName="path" inverseEntity="DBLocationDatum"/>
+        <fetchedProperty name="locationData" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="DBLocationDatum" predicateString="date &gt;= startDate AND date &lt;= endDate"/>
+        </fetchedProperty>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="startDate"/>
+                <constraint value="endDate"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="DBTimedCoordinates" representedClassName="DBTimedCoordinates" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>

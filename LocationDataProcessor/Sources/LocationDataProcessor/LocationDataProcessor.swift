@@ -20,7 +20,11 @@ public struct LocationDataProcessor {
     public let logger = Logger()
     
     public init(context: NSManagedObjectContext) {
-        self.init(context: context, commands: [LabelNullCoordinates(), BuildLocationData()])
+        self.init(context: context, commands: [
+            LabelNullCoordinates(),
+            BuildLocationData(),
+            BuildPaths(),
+        ])
     }
     
     init(context: NSManagedObjectContext, commands: [any DataProcessorCommand]) {
