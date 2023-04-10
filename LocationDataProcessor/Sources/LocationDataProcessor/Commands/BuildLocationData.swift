@@ -59,7 +59,7 @@ struct BuildLocationData: DataProcessorCommand {
                 date: date,
                 duration: timeInterval,
                 distance: distance,
-                speed: speed
+                speed: abs(speed)
             )
             locationData.append(datum)
         }
