@@ -12,7 +12,7 @@ import LocationDatabase
 struct StatisticsView: View {
   
     @SwiftUI.FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .forward)])
-    private var locationData: FetchedResults<DBLocationDatum>
+    private var locationData: FetchedResults<DBTimedCoordinates>
     
     @SwiftUI.FetchRequest(sortDescriptors: [SortDescriptor(\.importDate, order: .forward)])
     private var sources: FetchedResults<DBImportSource>
@@ -21,7 +21,7 @@ struct StatisticsView: View {
         List {
             Section {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Total location datums.")
+                    Text("Total location coordinatess.")
                     Text(locationData.endIndex, format: .number)
                         .fontWeight(.bold)
                 }

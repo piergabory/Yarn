@@ -4,10 +4,10 @@ import DataTransferObjects
 
 private enum Constants {
     static let batchSize: Int64 = 200
-    static let estimatedDatumByteSize: Int64 = 400
+    static let estimatedCoordinatesByteSize: Int64 = 400
 }
 
-public struct JSONLocationFileImportService<Deserializer: JSONObjectDeserializer> where Deserializer.Item == LocationDatum {
+public struct JSONLocationFileImportService<Deserializer: JSONObjectDeserializer> where Deserializer.Item == TimedCoordinates {
     
     enum ImportError: Error {
         case failedToOpenFile
@@ -48,7 +48,7 @@ public struct JSONLocationFileImportService<Deserializer: JSONObjectDeserializer
     
     // MARK: - Private
     
-    private func deserializeFile() async throws -> AsyncStream<LocationDatum> {
+    private func deserializeFile() async throws -> AsyncStream<TimedCoordinates> {
         let progressPolling =  Timer(timeInterval: 0.3, repeats: true) { _ in
             queryFileStreamProgress()
         }
@@ -67,18 +67,18 @@ public struct JSONLocationFileImportService<Deserializer: JSONObjectDeserializer
         return sequence
     }
 
-    private func saveOutput(of dataStream: AsyncStream<LocationDatum>) async throws {
+    private func saveOutput(of dataStream: AsyncStream<TimedCoordinates>) async throws {
         let fileSize = fileStreamProgress?.totalUnitCount ?? 0
-        let estimatedNumberOfDatums =  fileSize / Constants.estimatedDatumByteSize
-        let deserializationProgress = Progress(totalUnitCount: estimatedNumberOfDatums)
+        let estimatedNumberOfCoordinatess =  fileSize / Constants.estimatedCoordinatesByteSize
+        let deserializationProgress = Progress(totalUnitCount: estimatedNumberOfCoordinatess)
         progress.addChild(deserializationProgress, withPendingUnitCount: 60)
       
-        var batch: [LocationDatum] = []
-        for try await datum in dataStream {
-            batch.append(datum)
+        var batch: [TimedCoordinates] = []
+        for try await coordinates in dataStream {
+            batch.append(coordinates)
             if batch.count > Constants.batchSize {
                 deserializationProgress.completedUnitCount += 1
-                let request = BatchLocationDatumInsertRequest(data: batch)
+                let request = BatchTimedCoordinatesInsertRequest(data: batch)
                 try await database.execute(request)
                 deserializationProgress.completedUnitCount += Constants.batchSize
                 batch = []

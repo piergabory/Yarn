@@ -13,7 +13,7 @@ public extension CLLocationCoordinate2DFetchRequest {
     init() {
         self.init(convertor: CLLocationCoordinate2DConvertor())
         set(sortDescriptor: NSSortDescriptor(
-            keyPath: \DBLocationDatum.date,
+            keyPath: \DBTimedCoordinates.date,
             ascending: true
         ))
     }
@@ -28,10 +28,10 @@ public extension CLLocationCoordinate2DFetchRequest {
 }
 
 public struct CLLocationCoordinate2DConvertor: DTOConvertor {
-    public func convert(_ dbDatum: DBLocationDatum) throws -> CLLocationCoordinate2D {
+    public func convert(_ dbCoordinates: DBTimedCoordinates) throws -> CLLocationCoordinate2D {
         CLLocationCoordinate2D(
-            latitude: dbDatum.latitude,
-            longitude: dbDatum.longitude
+            latitude: dbCoordinates.latitude,
+            longitude: dbCoordinates.longitude
         )
     }
 }

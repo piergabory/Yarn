@@ -18,7 +18,7 @@ struct NullLocationFilter: LocationDataProcessorCommand {
             print("Started clearing Null points")
             
             let filterRequest = NSFetchRequest<NSFetchRequestResult>()
-            filterRequest.entity = DBLocationDatum.entity()
+            filterRequest.entity = DBTimedCoordinates.entity()
             filterRequest.predicate = NSPredicate(format: predicateQuery)
             
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: filterRequest)

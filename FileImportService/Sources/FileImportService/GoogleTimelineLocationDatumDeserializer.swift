@@ -8,19 +8,19 @@
 import Foundation
 import DataTransferObjects
 
-public typealias GoogleTimelineDeserializer = JSONStreamDeserializer<GoogleTimelineLocationDatumDeserializer>
+public typealias GoogleTimelineDeserializer = JSONStreamDeserializer<GoogleTimelineTimedCoordinatesDeserializer>
 
 public extension GoogleTimelineDeserializer {
     init() {
         self.init(
             arrayPropertyPath: ["locations"],
-            itemDeserializer: GoogleTimelineLocationDatumDeserializer()
+            itemDeserializer: GoogleTimelineTimedCoordinatesDeserializer()
         )
     }
 }
 
 // Map Google location data item to shared dto
-public struct GoogleTimelineLocationDatumDeserializer: JSONObjectDeserializer {
+public struct GoogleTimelineTimedCoordinatesDeserializer: JSONObjectDeserializer {
     
     private enum Keys {
         static let latitude = "latitudeE7"
@@ -28,7 +28,7 @@ public struct GoogleTimelineLocationDatumDeserializer: JSONObjectDeserializer {
         static let timestamp = "timestamp"
     }
     
-    enum DatumDeserializationError: Error {
+    enum CoordinatesDeserializationError: Error {
         case invalidObject(String)
         case invalidTimestampValue(String)
     }
@@ -41,14 +41,14 @@ public struct GoogleTimelineLocationDatumDeserializer: JSONObjectDeserializer {
         isoMillisecondDateFormater.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
     }
     
-    public func deserialize(_ jsonObject: NSDictionary) throws -> LocationDatum {
+    public func deserialize(_ jsonObject: NSDictionary) throws -> TimedCoordinates {
         guard
             let latitude = jsonObject[Keys.latitude] as? Int,
             let longitude = jsonObject[Keys.longitude] as? Int,
             let timestamp = jsonObject[Keys.timestamp] as? String
-        else { throw DatumDeserializationError.invalidObject(jsonObject.description) }
+        else { throw CoordinatesDeserializationError.invalidObject(jsonObject.description) }
         
-        return LocationDatum(
+        return TimedCoordinates(
             latitude: Double(latitude) / 10e6,
             longitude: Double(longitude) / 10e6,
             date: try decode(timestampString: timestamp)
@@ -60,7 +60,7 @@ public struct GoogleTimelineLocationDatumDeserializer: JSONObjectDeserializer {
         if let date {
             return date
         } else {
-            throw DatumDeserializationError.invalidTimestampValue(timestampString)
+            throw CoordinatesDeserializationError.invalidTimestampValue(timestampString)
         }
     }
 }

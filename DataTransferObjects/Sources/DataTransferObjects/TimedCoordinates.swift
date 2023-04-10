@@ -1,5 +1,5 @@
 //
-//  LocationDatum.swift
+//  TimedCoordinates.swift
 //  
 //
 //  Created by Pierre Gabory on 31/03/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LocationDatum {
+public struct TimedCoordinates {
     public let latitude: Double
     public let longitude: Double
     public let date: Date

@@ -42,9 +42,9 @@ struct HighSpeedFilter: LocationDataProcessorCommand {
         }
     }
     
-    private func highSpeedMovementIds(with dbLocationData: [DBLocationDatum]) -> Set<NSManagedObjectID> {
+    private func highSpeedMovementIds(with dbLocationData: [DBTimedCoordinates]) -> Set<NSManagedObjectID> {
         var skipped = Set<NSManagedObjectID>()
-        var previous: DBLocationDatum?
+        var previous: DBTimedCoordinates?
         for current in dbLocationData {
             if skipped.contains(current.objectID) {
                 continue
@@ -60,39 +60,39 @@ struct HighSpeedFilter: LocationDataProcessorCommand {
         return skipped
     }
     
-    private func fetchSortedLocationData(_ dbContext: NSManagedObjectContext) throws -> [DBLocationDatum] {
-        let filterRequest = NSFetchRequest<DBLocationDatum>()
-        filterRequest.entity = DBLocationDatum.entity()
-        filterRequest.sortDescriptors = [NSSortDescriptor(keyPath: \DBLocationDatum.date, ascending: true)]
+    private func fetchSortedLocationData(_ dbContext: NSManagedObjectContext) throws -> [DBTimedCoordinates] {
+        let filterRequest = NSFetchRequest<DBTimedCoordinates>()
+        filterRequest.entity = DBTimedCoordinates.entity()
+        filterRequest.sortDescriptors = [NSSortDescriptor(keyPath: \DBTimedCoordinates.date, ascending: true)]
         return try dbContext.fetch(filterRequest)
     }
     
     // MARK: Compute Speed
     
-    private func computeSpeed(between currentDatum: DBLocationDatum, and nextDatum: DBLocationDatum) -> Double {
-        guard let currentDate = currentDatum.date, let nextDate = nextDatum.date else { return 0 }
+    private func computeSpeed(between currentCoordinates: DBTimedCoordinates, and nextCoordinates: DBTimedCoordinates) -> Double {
+        guard let currentDate = currentCoordinates.date, let nextDate = nextCoordinates.date else { return 0 }
         let time = currentDate.timeIntervalSince(nextDate)
         
-        var distance = fastDistanceCompute(between: currentDatum, and: nextDatum)
+        var distance = fastDistanceCompute(between: currentCoordinates, and: nextCoordinates)
         if distance > Constants.fastDistanceComputeThreshold {
-            distance = preciseDistanceCompute(between: currentDatum, and: nextDatum)
+            distance = preciseDistanceCompute(between: currentCoordinates, and: nextCoordinates)
         }
         
         let speed = distance / time
         return abs(speed)
     }
     
-    private func fastDistanceCompute(between currentDatum: DBLocationDatum, and nextDatum: DBLocationDatum) -> Double {
-        let deltaLatitude = nextDatum.latitude - currentDatum.latitude
-        let deltaLongitude = nextDatum.longitude - currentDatum.longitude
+    private func fastDistanceCompute(between currentCoordinates: DBTimedCoordinates, and nextCoordinates: DBTimedCoordinates) -> Double {
+        let deltaLatitude = nextCoordinates.latitude - currentCoordinates.latitude
+        let deltaLongitude = nextCoordinates.longitude - currentCoordinates.longitude
         return sqrt(deltaLatitude * deltaLatitude + deltaLongitude * deltaLongitude) * Constants.earthRadius
     }
     
-    private func preciseDistanceCompute(between currentDatum: DBLocationDatum, and nextDatum: DBLocationDatum) -> Double {
-        clLocation(nextDatum).distance(from: clLocation(currentDatum))
+    private func preciseDistanceCompute(between currentCoordinates: DBTimedCoordinates, and nextCoordinates: DBTimedCoordinates) -> Double {
+        clLocation(nextCoordinates).distance(from: clLocation(currentCoordinates))
     }
             
-    private func clLocation(_ dbDatum: DBLocationDatum) -> CLLocation {
-        CLLocation(latitude: dbDatum.latitude, longitude: dbDatum.longitude)
+    private func clLocation(_ dbCoordinates: DBTimedCoordinates) -> CLLocation {
+        CLLocation(latitude: dbCoordinates.latitude, longitude: dbCoordinates.longitude)
     }
 }
