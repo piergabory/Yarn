@@ -8,9 +8,15 @@
 import MapKit
 import SwiftUI
 
-public struct PathView: MapViewRepresentable {
+public struct MapView {
     public struct Coordinator {
         let delegate = PathMapViewDelegate()
+    }
+    
+    public struct Context {
+        let coordinator: Coordinator
+        let transaction: Transaction
+        let environment: EnvironmentValues
     }
     
     private let delegate = PathMapViewDelegate()
@@ -24,7 +30,7 @@ public struct PathView: MapViewRepresentable {
         Coordinator()
     }
     
-    public func makeMKMapView(context: MapViewRepresentableContext<PathView>) -> MKMapView {
+    public func makeMKMapView(context: Context) -> MKMapView {
         let mkMapView = MKMapView()
         mkMapView.preferredConfiguration = MKStandardMapConfiguration(
             elevationStyle: .realistic,
@@ -35,7 +41,7 @@ public struct PathView: MapViewRepresentable {
         return mkMapView
     }
     
-    public func updateMKMapView(_ mkMapView: MKMapView, context: MapViewRepresentableContext<PathView>) {
+    public func updateMKMapView(_ mkMapView: MKMapView, context: Context) {
         mkMapView.delegate = context.coordinator.delegate
         mkMapView.removeOverlays(mkMapView.overlays)
         updateOverlays(mkMapView)
