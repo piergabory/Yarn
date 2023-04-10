@@ -1,18 +1,29 @@
 import CoreData
+import Combine
 
-protocol LocationDataProcessorCommand {
+protocol DataProcessorCommand {
+    associatedtype LogStream: Publisher<String, Never>
+    var logStream: LogStream { get }
     func execute(dbContext: NSManagedObjectContext) async throws
+}
+
+extension DataProcessorCommand {
+    var log: AnyPublisher<String, Never> {
+        logStream.eraseToAnyPublisher()
+    }
 }
 
 public struct LocationDataProcessor {
     private let context: NSManagedObjectContext
-    private let commands: [LocationDataProcessorCommand]
+    private let commands: [any DataProcessorCommand]
+    
+    public let logger = Logger()
     
     public init(context: NSManagedObjectContext) {
-        self.init(context: context, commands: [NullLocationFilter(), HighSpeedFilter()])
+        self.init(context: context, commands: [LabelNullCoordinates(), BuildLocationData()])
     }
     
-    init(context: NSManagedObjectContext, commands: [LocationDataProcessorCommand]) {
+    init(context: NSManagedObjectContext, commands: [any DataProcessorCommand]) {
         self.context = context
         self.commands = commands
     }
@@ -20,10 +31,11 @@ public struct LocationDataProcessor {
     public func execute() async throws {
         var caughtError: Error?
         for command in commands {
+            logger.connect(command.log)
             do {
                 try await command.execute(dbContext: context)
             } catch {
-                print("Location Data Processor Error: \(error)")
+                logger.send(message: "Location Data Processor Error: \(error)")
                 caughtError = error
             }
         }

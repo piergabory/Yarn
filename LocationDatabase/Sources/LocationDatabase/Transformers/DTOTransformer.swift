@@ -8,7 +8,7 @@
 import CoreData
 import Foundation
 
-enum DTOUpdatorError: Error {
+enum DTOConvertorError: Error {
     case invalidDatabaseObject(NSManagedObject)
 }
 

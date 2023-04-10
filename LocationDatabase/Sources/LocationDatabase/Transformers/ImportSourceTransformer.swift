@@ -23,7 +23,7 @@ public struct ImportSourceTransformer: DTOTransformer {
         if let fileURL = dbImportSource.fileURL, let importDate = dbImportSource.importDate {
             return ImportSource(fileURL: fileURL, importDate: importDate)
         } else {
-            throw DTOUpdatorError.invalidDatabaseObject(dbImportSource)
+            throw DTOConvertorError.invalidDatabaseObject(dbImportSource)
         }
     }
     

@@ -11,7 +11,8 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="DBLocationCoordinates" representedClassName="DBLocationCoordinates" syncable="YES" codeGenerationType="class">
+    <entity name="DBLocationDatum" representedClassName="DBLocationDatum" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="distance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -24,13 +25,13 @@
         <attribute name="distance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="locationData" toMany="YES" deletionRule="Nullify" destinationEntity="DBLocationCoordinates" inverseName="path" inverseEntity="DBLocationCoordinates"/>
+        <relationship name="locationData" toMany="YES" deletionRule="Nullify" destinationEntity="DBLocationDatum" inverseName="path" inverseEntity="DBLocationDatum"/>
     </entity>
     <entity name="DBTimedCoordinates" representedClassName="DBTimedCoordinates" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="label" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="rawLabel" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBImportSource" inverseName="data" inverseEntity="DBImportSource"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
