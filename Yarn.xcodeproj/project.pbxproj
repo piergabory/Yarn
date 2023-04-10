@@ -18,7 +18,6 @@
 		D4FBD7DD29E49EBA005FD38A /* PathExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7D029E49EBA005FD38A /* PathExplorerView.swift */; };
 		D4FBD7DE29E49EBA005FD38A /* DateIntervalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7D129E49EBA005FD38A /* DateIntervalPicker.swift */; };
 		D4FBD7DF29E49EBA005FD38A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD7D329E49EBA005FD38A /* Preview Assets.xcassets */; };
-		D4FBD7E029E49EBA005FD38A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD7D429E49EBA005FD38A /* Info.plist */; };
 		D4FBD7E529E4A14B005FD38A /* CalendarTools in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E429E4A14B005FD38A /* CalendarTools */; };
 		D4FBD7E729E4A14B005FD38A /* DataTransferObjects in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E629E4A14B005FD38A /* DataTransferObjects */; };
 		D4FBD7E929E4A14B005FD38A /* DateIntervalPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E829E4A14B005FD38A /* DateIntervalPicker */; };
@@ -279,7 +278,6 @@
 			files = (
 				D4FBD7DF29E49EBA005FD38A /* Preview Assets.xcassets in Resources */,
 				D4FBD7DB29E49EBA005FD38A /* Assets.xcassets in Resources */,
-				D4FBD7E029E49EBA005FD38A /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Yarn/Yarn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -461,6 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Yarn/Yarn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
