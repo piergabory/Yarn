@@ -7,14 +7,16 @@
 
 import CalendarTools
 import CoreData
-import CoreLocation
 import Foundation
 import LocationDatabase
+import MapKit
 
 @MainActor class PathExplorer: ObservableObject {
     
     var managedObjectContext: NSManagedObjectContext?
-    @Published var paths: [[CLLocationCoordinate2D]] = []
+    
+    @Published var overlays: [MKOverlay] = []
+    
     @Published var dateInterval = DateInterval(start: .now.startOfDay, end: .now.endOfDay) {
         didSet { Task { try await buildPath() } }
     }
@@ -25,16 +27,29 @@ import LocationDatabase
             .filter(dateInterval: dateInterval)
             .execute(in: managedObjectContext)
         
-        var coordinatesSets: [[CLLocationCoordinate2D]] = []
+        var pathsOverlays: [MKPolyline] = []
+        var connections: [MKPolyline] = []
+        var lastPointOfPreviousPath: CLLocationCoordinate2D?
         for bounds in paths {
-            let coordinatesSet = try await CLLocationCoordinate2DFetchRequest()
-//                .filterNullPoints()
+            let points = try await CLLocationCoordinate2DFetchRequest()
                 .filter(dateInterval: DateInterval(start: bounds.startDate, end: bounds.endDate))
                 .execute(in: managedObjectContext)
-            if coordinatesSet.count > 2 {
-                coordinatesSets.append(coordinatesSet)
+            if points.count > 2 {
+                pathsOverlays.append(MKPolyline(coordinates: points, count: points.count))
             }
+            if let lastPointOfPreviousPath, let firstPointOfCurrentPath = points.first {
+                let line = [lastPointOfPreviousPath, firstPointOfCurrentPath]
+                connections.append(MKPolyline(coordinates: line, count: line.count))
+            }
+            lastPointOfPreviousPath = points.last
         }
-        self.paths = coordinatesSets
+
+        let pathOverlay = MKMultiPolyline(pathsOverlays)
+        pathOverlay.title = "Paths"
+        
+        let connectionsOverlay = MKMultiPolyline(connections)
+        connectionsOverlay.title = "Connections"
+        
+        self.overlays = [pathOverlay, connectionsOverlay]
     }
 }

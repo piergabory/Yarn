@@ -16,7 +16,13 @@ struct PathExplorerView: View {
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            MapView(paths: model.paths)
+            MapView()
+                .mapType(.mutedStandard)
+                .overlays(model.overlays, level: .aboveRoads)
+                #if os(iOS)
+                .toolbarBackground(.visible, for: .automatic)
+                .edgesIgnoringSafeArea(.all)
+                #endif
             DateIntervalPicker(selection: $model.dateInterval)
                 .padding()
                 .background(.regularMaterial)
@@ -25,6 +31,9 @@ struct PathExplorerView: View {
             model.managedObjectContext = dbContext
         }
         .navigationTitle("Path Explorer")
+        #if os(iOS)
+        .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
 }
 
