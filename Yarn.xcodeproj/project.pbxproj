@@ -19,6 +19,13 @@
 		D4FBD7DE29E49EBA005FD38A /* DateIntervalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7D129E49EBA005FD38A /* DateIntervalPicker.swift */; };
 		D4FBD7DF29E49EBA005FD38A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD7D329E49EBA005FD38A /* Preview Assets.xcassets */; };
 		D4FBD7E029E49EBA005FD38A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD7D429E49EBA005FD38A /* Info.plist */; };
+		D4FBD7E529E4A14B005FD38A /* CalendarTools in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E429E4A14B005FD38A /* CalendarTools */; };
+		D4FBD7E729E4A14B005FD38A /* DataTransferObjects in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E629E4A14B005FD38A /* DataTransferObjects */; };
+		D4FBD7E929E4A14B005FD38A /* DateIntervalPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E829E4A14B005FD38A /* DateIntervalPicker */; };
+		D4FBD7EB29E4A14B005FD38A /* FileImportService in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7EA29E4A14B005FD38A /* FileImportService */; };
+		D4FBD7ED29E4A14B005FD38A /* LocationDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7EC29E4A14B005FD38A /* LocationDatabase */; };
+		D4FBD7EF29E4A14B005FD38A /* LocationDataProcessor in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7EE29E4A14B005FD38A /* LocationDataProcessor */; };
+		D4FBD7F129E4A14B005FD38A /* MapView in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7F029E4A14B005FD38A /* MapView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +57,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4FBD7ED29E4A14B005FD38A /* LocationDatabase in Frameworks */,
+				D4FBD7E929E4A14B005FD38A /* DateIntervalPicker in Frameworks */,
+				D4FBD7F129E4A14B005FD38A /* MapView in Frameworks */,
+				D4FBD7EF29E4A14B005FD38A /* LocationDataProcessor in Frameworks */,
+				D4FBD7EB29E4A14B005FD38A /* FileImportService in Frameworks */,
+				D4FBD7E729E4A14B005FD38A /* DataTransferObjects in Frameworks */,
+				D4FBD7E529E4A14B005FD38A /* CalendarTools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +76,7 @@
 				D4F54FDC29E49E88005C65E5 /* Packages */,
 				D4F54FC529E49E40005C65E5 /* Yarn */,
 				D4F54FC429E49E40005C65E5 /* Products */,
+				D4FBD7E329E4A14B005FD38A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				D4FBD7E129E49EC9005FD38A /* App */,
+				D4FBD7E229E4A12E005FD38A /* Preview Content */,
 				D4FBD7CC29E49EBA005FD38A /* Assets.xcassets */,
 				D4FBD7D429E49EBA005FD38A /* Info.plist */,
 				D4FBD7CA29E49EBA005FD38A /* Yarn.entitlements */,
@@ -179,6 +195,20 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		D4FBD7E229E4A12E005FD38A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D4FBD7E329E4A14B005FD38A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,6 +225,15 @@
 			dependencies = (
 			);
 			name = Yarn;
+			packageProductDependencies = (
+				D4FBD7E429E4A14B005FD38A /* CalendarTools */,
+				D4FBD7E629E4A14B005FD38A /* DataTransferObjects */,
+				D4FBD7E829E4A14B005FD38A /* DateIntervalPicker */,
+				D4FBD7EA29E4A14B005FD38A /* FileImportService */,
+				D4FBD7EC29E4A14B005FD38A /* LocationDatabase */,
+				D4FBD7EE29E4A14B005FD38A /* LocationDataProcessor */,
+				D4FBD7F029E4A14B005FD38A /* MapView */,
+			);
 			productName = Yarn;
 			productReference = D4F54FC329E49E40005C65E5 /* Yarn.app */;
 			productType = "com.apple.product-type.application";
@@ -389,6 +428,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Yarn;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -399,7 +440,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -429,6 +470,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Yarn;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -439,7 +482,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -476,6 +519,37 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D4FBD7E429E4A14B005FD38A /* CalendarTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CalendarTools;
+		};
+		D4FBD7E629E4A14B005FD38A /* DataTransferObjects */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DataTransferObjects;
+		};
+		D4FBD7E829E4A14B005FD38A /* DateIntervalPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DateIntervalPicker;
+		};
+		D4FBD7EA29E4A14B005FD38A /* FileImportService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FileImportService;
+		};
+		D4FBD7EC29E4A14B005FD38A /* LocationDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocationDatabase;
+		};
+		D4FBD7EE29E4A14B005FD38A /* LocationDataProcessor */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocationDataProcessor;
+		};
+		D4FBD7F029E4A14B005FD38A /* MapView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MapView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D4F54FBB29E49E40005C65E5 /* Project object */;
 }

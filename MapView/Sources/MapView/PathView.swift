@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  SwiftMKMapView.swift
 //  
 //
 //  Created by Pierre Gabory on 08/04/2023.
@@ -8,7 +8,7 @@
 import MapKit
 import SwiftUI
 
-public struct PathView: UIViewRepresentable {
+public struct PathView: MapViewRepresentable {
     public struct Coordinator {
         let delegate = PathMapViewDelegate()
     }
@@ -24,7 +24,7 @@ public struct PathView: UIViewRepresentable {
         Coordinator()
     }
     
-    public func makeUIView(context: Context) -> MKMapView {
+    public func makeMKMapView(context: MapViewRepresentableContext<PathView>) -> MKMapView {
         let mkMapView = MKMapView()
         mkMapView.preferredConfiguration = MKStandardMapConfiguration(
             elevationStyle: .realistic,
@@ -35,7 +35,7 @@ public struct PathView: UIViewRepresentable {
         return mkMapView
     }
     
-    public func updateUIView(_ mkMapView: MKMapView, context: Context) {
+    public func updateMKMapView(_ mkMapView: MKMapView, context: MapViewRepresentableContext<PathView>) {
         mkMapView.delegate = context.coordinator.delegate
         mkMapView.removeOverlays(mkMapView.overlays)
         updateOverlays(mkMapView)
