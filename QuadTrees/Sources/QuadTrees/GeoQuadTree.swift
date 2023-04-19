@@ -12,6 +12,8 @@ public protocol Geolocatable {
     var geolocation: CLLocationCoordinate2D { get }
 }
 
+public typealias DecimalGeoHash = [UInt32]
+
 public class GeoQuadTree<Element: Geolocatable> {
     // Elements
     let capacity: Int
@@ -28,10 +30,21 @@ public class GeoQuadTree<Element: Geolocatable> {
     }
     
     public let region: RectangularRegion
+    public let level: Int
+    public let geoHash: DecimalGeoHash
+
     public var count = 0
     
-    init(region: RectangularRegion = .world, elements: [Element] = [], capacity: Int = 10) {
+    init(
+        region: RectangularRegion = .world,
+        level: Int = 0,
+        geoHash: DecimalGeoHash = [],
+        elements: [Element] = [],
+        capacity: Int = 10
+    ) {
         self.region = region
+        self.level = level
+        self.geoHash = geoHash
         self.capacity = capacity
         self.elements = elements
     }

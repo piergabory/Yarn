@@ -30,10 +30,33 @@ extension GeoQuadTree {
     }
     
     private func subdivide() {
-        northEast = GeoQuadTree(region: region.subRegion(for: .northEast))
-        northWest = GeoQuadTree(region: region.subRegion(for: .northWest))
-        southEast = GeoQuadTree(region: region.subRegion(for: .southEast))
-        southWest = GeoQuadTree(region: region.subRegion(for: .southWest))
+        var geoHash = self.geoHash
+        var digit: UInt32 = 0
+        if level % 10 != 0 {
+            let lastDigit = geoHash.popLast() ?? 0
+            digit = lastDigit << 2
+        }
+        
+        northEast = GeoQuadTree(
+            region: region.subRegion(for: .northEast),
+            level: level + 1,
+            geoHash: geoHash + [digit + 0]
+        )
+        northWest = GeoQuadTree(
+            region: region.subRegion(for: .northWest),
+            level: level + 1,
+            geoHash: geoHash + [digit + 1]
+        )
+        southEast = GeoQuadTree(
+            region: region.subRegion(for: .southEast),
+            level: level + 1,
+            geoHash: geoHash + [digit + 2]
+        )
+        southWest = GeoQuadTree(
+            region: region.subRegion(for: .southWest),
+            level: level + 1,
+            geoHash: geoHash + [digit + 3]
+        )
         
         count = 0
         for element in elements {
