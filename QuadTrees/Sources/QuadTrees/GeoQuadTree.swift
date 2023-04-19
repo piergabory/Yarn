@@ -12,8 +12,6 @@ public protocol Geolocatable {
     var geolocation: CLLocationCoordinate2D { get }
 }
 
-public typealias DecimalGeoHash = [UInt32]
-
 public class GeoQuadTree<Element: Geolocatable> {
     // Elements
     let capacity: Int
