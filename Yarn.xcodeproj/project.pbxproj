@@ -28,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4515EA329F0958A00E38B5B /* QuadTrees */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = QuadTrees; sourceTree = "<group>"; };
 		D4F54FC329E49E40005C65E5 /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F54FD529E49E78005C65E5 /* DateIntervalPicker */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DateIntervalPicker; sourceTree = "<group>"; };
 		D4F54FD629E49E78005C65E5 /* FileImportService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FileImportService; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 		D4F54FDC29E49E88005C65E5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				D4515EA329F0958A00E38B5B /* QuadTrees */,
 				D4F54FD929E49E78005C65E5 /* CalendarTools */,
 				D4F54FD829E49E78005C65E5 /* DataTransferObjects */,
 				D4F54FD529E49E78005C65E5 /* DateIntervalPicker */,
