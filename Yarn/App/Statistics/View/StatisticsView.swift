@@ -23,6 +23,9 @@ struct StatisticsView: View {
     @SwiftUI.FetchRequest(sortDescriptors: [SortDescriptor(\.startDate, order: .forward)])
     private var paths: FetchedResults<DBPath>
     
+    @SwiftUI.FetchRequest(sortDescriptors: [SortDescriptor(\.count, order: .forward)])
+    private var regions: FetchedResults<DBGeoRegion>
+    
     var body: some View {
         List {
             Section {
@@ -86,6 +89,18 @@ struct StatisticsView: View {
                         Text(lastDate, format: .dateTime)
                             .fontWeight(.bold)
                     }
+                }
+            }
+            Section {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Number of regions")
+                    Text(regions.count, format: .number)
+                        .fontWeight(.bold)
+                }
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Region max Depth")
+                    Text(regions.map(\.level).max() ?? 0, format: .number)
+                        .fontWeight(.bold)
                 }
             }
             Section {
