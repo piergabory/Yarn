@@ -19,6 +19,7 @@ extension DecimalGeoHash {
     ]
     
     public var stringGeoHash: String {
-        map({ DecimalGeoHash.geoHashAlphabet[Int($0)] }).joined()
+        "geohash"
+//        map({ DecimalGeoHash.geoHashAlphabet[Int($0)] }).joined()
     }
 }

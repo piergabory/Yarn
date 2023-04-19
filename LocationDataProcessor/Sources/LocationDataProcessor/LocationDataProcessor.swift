@@ -24,6 +24,7 @@ public struct LocationDataProcessor {
             LabelNullCoordinates(),
             BuildLocationData(),
             BuildPaths(),
+            BuildGeoRegions()
         ])
     }
     

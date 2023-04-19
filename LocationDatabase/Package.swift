@@ -13,11 +13,12 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../DataTransferObjects"),
+        .package(path: "../QuadTrees")
     ],
     targets: [
         .target(
             name: "LocationDatabase",
-            dependencies: ["DataTransferObjects"]),
+            dependencies: ["DataTransferObjects", "QuadTrees"]),
         .testTarget(
             name: "LocationDatabaseTests",
             dependencies: ["LocationDatabase"]),

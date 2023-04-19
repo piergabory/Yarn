@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4515EA529F0A61300E38B5B /* QuadTrees in Frameworks */ = {isa = PBXBuildFile; productRef = D4515EA429F0A61300E38B5B /* QuadTrees */; };
+		D4515EA729F0ABF400E38B5B /* LocationDataProcessor in Frameworks */ = {isa = PBXBuildFile; productRef = D4515EA629F0ABF400E38B5B /* LocationDataProcessor */; };
 		D4FBD7D529E49EBA005FD38A /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7C129E49EBA005FD38A /* ProcessingView.swift */; };
 		D4FBD7D629E49EBA005FD38A /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7C429E49EBA005FD38A /* StatisticsView.swift */; };
 		D4FBD7D729E49EBA005FD38A /* FileImportTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7C729E49EBA005FD38A /* FileImportTaskView.swift */; };
@@ -23,7 +25,6 @@
 		D4FBD7E929E4A14B005FD38A /* DateIntervalPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E829E4A14B005FD38A /* DateIntervalPicker */; };
 		D4FBD7EB29E4A14B005FD38A /* FileImportService in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7EA29E4A14B005FD38A /* FileImportService */; };
 		D4FBD7ED29E4A14B005FD38A /* LocationDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7EC29E4A14B005FD38A /* LocationDatabase */; };
-		D4FBD7EF29E4A14B005FD38A /* LocationDataProcessor in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7EE29E4A14B005FD38A /* LocationDataProcessor */; };
 		D4FBD7F129E4A14B005FD38A /* MapView in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7F029E4A14B005FD38A /* MapView */; };
 /* End PBXBuildFile section */
 
@@ -57,13 +58,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4515EA729F0ABF400E38B5B /* LocationDataProcessor in Frameworks */,
 				D4FBD7ED29E4A14B005FD38A /* LocationDatabase in Frameworks */,
 				D4FBD7E929E4A14B005FD38A /* DateIntervalPicker in Frameworks */,
 				D4FBD7F129E4A14B005FD38A /* MapView in Frameworks */,
-				D4FBD7EF29E4A14B005FD38A /* LocationDataProcessor in Frameworks */,
 				D4FBD7EB29E4A14B005FD38A /* FileImportService in Frameworks */,
 				D4FBD7E729E4A14B005FD38A /* DataTransferObjects in Frameworks */,
 				D4FBD7E529E4A14B005FD38A /* CalendarTools in Frameworks */,
+				D4515EA529F0A61300E38B5B /* QuadTrees in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,8 +234,9 @@
 				D4FBD7E829E4A14B005FD38A /* DateIntervalPicker */,
 				D4FBD7EA29E4A14B005FD38A /* FileImportService */,
 				D4FBD7EC29E4A14B005FD38A /* LocationDatabase */,
-				D4FBD7EE29E4A14B005FD38A /* LocationDataProcessor */,
 				D4FBD7F029E4A14B005FD38A /* MapView */,
+				D4515EA429F0A61300E38B5B /* QuadTrees */,
+				D4515EA629F0ABF400E38B5B /* LocationDataProcessor */,
 			);
 			productName = Yarn;
 			productReference = D4F54FC329E49E40005C65E5 /* Yarn.app */;
@@ -523,6 +526,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D4515EA429F0A61300E38B5B /* QuadTrees */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QuadTrees;
+		};
+		D4515EA629F0ABF400E38B5B /* LocationDataProcessor */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocationDataProcessor;
+		};
 		D4FBD7E429E4A14B005FD38A /* CalendarTools */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CalendarTools;
@@ -542,10 +553,6 @@
 		D4FBD7EC29E4A14B005FD38A /* LocationDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LocationDatabase;
-		};
-		D4FBD7EE29E4A14B005FD38A /* LocationDataProcessor */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = LocationDataProcessor;
 		};
 		D4FBD7F029E4A14B005FD38A /* MapView */ = {
 			isa = XCSwiftPackageProductDependency;

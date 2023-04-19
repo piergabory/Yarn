@@ -40,27 +40,33 @@ extension GeoQuadTree {
         northEast = GeoQuadTree(
             region: region.subRegion(for: .northEast),
             level: level + 1,
-            geoHash: geoHash + [digit + 0]
+            geoHash: geoHash + [digit + 0],
+            capacity: capacity
         )
         northWest = GeoQuadTree(
             region: region.subRegion(for: .northWest),
             level: level + 1,
-            geoHash: geoHash + [digit + 1]
+            geoHash: geoHash + [digit + 1],
+            capacity: capacity
         )
         southEast = GeoQuadTree(
             region: region.subRegion(for: .southEast),
             level: level + 1,
-            geoHash: geoHash + [digit + 2]
+            geoHash: geoHash + [digit + 2],
+            capacity: capacity
         )
         southWest = GeoQuadTree(
             region: region.subRegion(for: .southWest),
             level: level + 1,
-            geoHash: geoHash + [digit + 3]
+            geoHash: geoHash + [digit + 3],
+            capacity: capacity
         )
         
         count = 0
         for element in elements {
-            insert(element)
+            for node in childNodes where node.region.contains(coordinate: element.geolocation) {
+                node.elements.append(element)
+            }
         }
         elements = []
     }

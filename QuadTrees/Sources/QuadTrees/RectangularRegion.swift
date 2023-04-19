@@ -9,9 +9,24 @@ import Foundation
 import CoreLocation
 
 public struct RectangularRegion {
-    let center: CLLocationCoordinate2D
-    let latitudeDelta: CLLocationDegrees
-    let longitudeDelta: CLLocationDegrees
+    public let center: CLLocationCoordinate2D
+    public let latitudeDelta: CLLocationDegrees
+    public let longitudeDelta: CLLocationDegrees
+    
+    public var northEast: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(
+            latitude: center.latitude + latitudeDelta,
+            longitude: center.longitude + longitudeDelta
+        )
+    }
+    
+    public var southWest: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(
+            latitude: center.latitude - latitudeDelta,
+            longitude: center.longitude - longitudeDelta
+        )
+    }
+    
     
     public init(center: CLLocationCoordinate2D, latitudeDelta: CLLocationDegrees, longitudeDelta: CLLocationDegrees) {
         self.center = center
