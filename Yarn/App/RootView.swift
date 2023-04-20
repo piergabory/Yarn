@@ -14,7 +14,7 @@ struct RootView: View {
     
     var body: some View {
         NavigationStack {
-            PathExplorerView()
+            RegionExplorerView()
                 .toolbar {
                     NavigationLink {
                         ProcessingView()

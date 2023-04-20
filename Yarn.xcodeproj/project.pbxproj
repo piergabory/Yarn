@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D43077CD29F1EA72000512A7 /* RegionExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43077CC29F1EA72000512A7 /* RegionExplorerView.swift */; };
 		D4515EA529F0A61300E38B5B /* QuadTrees in Frameworks */ = {isa = PBXBuildFile; productRef = D4515EA429F0A61300E38B5B /* QuadTrees */; };
 		D4515EA729F0ABF400E38B5B /* LocationDataProcessor in Frameworks */ = {isa = PBXBuildFile; productRef = D4515EA629F0ABF400E38B5B /* LocationDataProcessor */; };
 		D4FBD7D529E49EBA005FD38A /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7C129E49EBA005FD38A /* ProcessingView.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D43077CC29F1EA72000512A7 /* RegionExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionExplorerView.swift; sourceTree = "<group>"; };
 		D4515EA329F0958A00E38B5B /* QuadTrees */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = QuadTrees; sourceTree = "<group>"; };
 		D4F54FC329E49E40005C65E5 /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F54FD529E49E78005C65E5 /* DateIntervalPicker */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DateIntervalPicker; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				D4FBD7D029E49EBA005FD38A /* PathExplorerView.swift */,
 				D4FBD7D129E49EBA005FD38A /* DateIntervalPicker.swift */,
+				D43077CC29F1EA72000512A7 /* RegionExplorerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				D4FBD7D529E49EBA005FD38A /* ProcessingView.swift in Sources */,
 				D4FBD7DE29E49EBA005FD38A /* DateIntervalPicker.swift in Sources */,
 				D4FBD7D629E49EBA005FD38A /* StatisticsView.swift in Sources */,
+				D43077CD29F1EA72000512A7 /* RegionExplorerView.swift in Sources */,
 				D4FBD7D929E49EBA005FD38A /* RootView.swift in Sources */,
 				D4FBD7DC29E49EBA005FD38A /* PathExplorer.swift in Sources */,
 			);
