@@ -10,12 +10,16 @@ import CoreLocation
 
 extension GeoQuadTree {
     public var baryCenter: CLLocationCoordinate2D {
-        let latitudeAverage = childNodes
-            .map(\.region.center.latitude)
-            .reduce(0, +) / Double(count)
-        let longitudeAverage = childNodes
-            .map(\.region.center.longitude)
-            .reduce(0, +) / Double(count)
-        return CLLocationCoordinate2D(latitude: latitudeAverage, longitude: longitudeAverage)
+        var latitude = 0.0
+        var longitude = 0.0
+        for node in childNodes {
+            let weight = Double(node.count)
+            latitude += node.region.center.latitude * weight
+            longitude += node.region.center.longitude * weight
+        }
+        let divider = Double(count)
+        latitude /= divider
+        longitude /= divider
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
