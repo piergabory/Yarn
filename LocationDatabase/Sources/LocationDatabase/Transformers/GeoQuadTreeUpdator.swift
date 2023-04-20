@@ -31,8 +31,8 @@ public struct GeoQuadTreeUpdator: DTOUpdator {
     public func update(_ dbGeoRegion: DBGeoRegion, with region: GeoDataTree) throws {
         dbGeoRegion.latitudeMax = region.region.northEast.latitude
         dbGeoRegion.latitudeMin = region.region.southWest.latitude
-        dbGeoRegion.longitudeMax = region.region.northEast.latitude
-        dbGeoRegion.longitudeMin = region.region.southWest.latitude
+        dbGeoRegion.longitudeMax = region.region.northEast.longitude
+        dbGeoRegion.longitudeMin = region.region.southWest.longitude
         dbGeoRegion.barycenterLatitude = region.baryCenter.latitude
         dbGeoRegion.barycenterLongitude = region.baryCenter.longitude
         dbGeoRegion.count = Int64(region.count)
