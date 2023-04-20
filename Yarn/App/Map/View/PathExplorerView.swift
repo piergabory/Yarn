@@ -8,17 +8,19 @@
 import LocationDatabase
 import CoreLocation
 import MapView
+import MapKit
 import SwiftUI
 
 struct PathExplorerView: View {
     @Environment(\.managedObjectContext) var dbContext
     @StateObject var model = PathExplorer()
+    @State var region = MKCoordinateRegion(.world)
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            MapView()
+            MKMapViewRepresentable(region: $region)
                 .mapType(.mutedStandard)
-                .overlays(model.overlays, level: .aboveRoads)
+                .mapOverlay(aboveRoads: model.overlays)
                 #if os(iOS)
                 .toolbarBackground(.visible, for: .automatic)
                 .edgesIgnoringSafeArea(.all)

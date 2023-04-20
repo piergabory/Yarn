@@ -8,57 +8,40 @@
 import MapKit
 import SwiftUI
 
-private struct AboveRoadsOverlaysEnvironmentKey: EnvironmentKey {
-    static let defaultValue: [MKOverlay] = []
+struct MKMapViewRepresentableOverlays {
+    let aboveRoads: [MKOverlay]
+    let aboveLabels: [MKOverlay]
 }
 
-private struct AboveLabelsOverlaysEnvironmentKey: EnvironmentKey {
-    static let defaultValue: [MKOverlay] = []
+private struct MKMapViewRepresentableOverlaysKey: EnvironmentKey {
+    static let defaultValue = MKMapViewRepresentableOverlays(aboveRoads: [], aboveLabels: [])
 }
 
-extension MKMapType: EnvironmentKey {
+private struct MKMapViewRepresentableMapTypeKey: EnvironmentKey {
     static public var defaultValue: MKMapType = .standard
 }
 
 extension EnvironmentValues {
-    var aboveRoadsOverlays: [MKOverlay] {
-        get { self[AboveRoadsOverlaysEnvironmentKey.self] }
-        set { self[AboveRoadsOverlaysEnvironmentKey.self] = newValue }
+    var mkMapViewOverlays: MKMapViewRepresentableOverlays {
+        get { self[MKMapViewRepresentableOverlaysKey.self] }
+        set { self[MKMapViewRepresentableOverlaysKey.self] = newValue }
     }
     
-    var aboveLabelsOverlays: [MKOverlay] {
-        get { self[AboveLabelsOverlaysEnvironmentKey.self] }
-        set { self[AboveLabelsOverlaysEnvironmentKey.self] = newValue }
-    }
-    
-    var mapType: MKMapType {
-        get { self[MKMapType.self] }
-        set { self[MKMapType.self] = newValue }
+    var mkMapViewMapType: MKMapType {
+        get { self[MKMapViewRepresentableMapTypeKey.self] }
+        set { self[MKMapViewRepresentableMapTypeKey.self] = newValue }
     }
 }
 
 public extension View {
     
-    func overlay(_ overlay: MKOverlay?, level: MKOverlayLevel) -> some View {
-        if let overlay {
-            return overlays([overlay], level: level)
-        } else {
-            return overlays([], level: level)
-        }
+    func mapOverlay(aboveRoads: [MKOverlay] = [], aboveLabels: [MKOverlay] = []) -> some View {
+        environment(\.mkMapViewOverlays, MKMapViewRepresentableOverlays(
+            aboveRoads: aboveRoads,
+            aboveLabels: aboveLabels
+        ))
     }
-
-    func overlays(_ overlays: [MKOverlay], level: MKOverlayLevel) -> some View {
-        switch level {
-        case .aboveRoads:
-            return environment(\.aboveRoadsOverlays, overlays)
-        case .aboveLabels:
-            return environment(\.aboveLabelsOverlays, overlays)
-        @unknown default:
-            return environment(\.aboveLabelsOverlays, overlays)
-        }
-    }
-    
     func mapType(_ mapType: MKMapType) -> some View {
-        environment(\.mapType, mapType)
+        environment(\.mkMapViewMapType, mapType)
     }
 }

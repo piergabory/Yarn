@@ -1,5 +1,5 @@
 //
-//  MapViewDelegate.swift
+//  MKMapViewRepresentable.Coordinator+MKMapViewDelegate.swift
 //  
 //
 //  Created by Pierre Gabory on 10/04/2023.
@@ -7,8 +7,13 @@
 
 import MapKit
 
-class MapViewDelegate: NSObject, MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+extension MKMapViewRepresentable.Coordinator: MKMapViewDelegate {
+    
+    public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        representable.region = mapView.region
+    }
+
+    public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = makeRenderer(for: overlay)
         switch renderer {
         case let polylineRenderer as MKOverlayPathRenderer:
