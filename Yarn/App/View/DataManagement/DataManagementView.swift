@@ -57,9 +57,6 @@ struct DataManagementToolbarView: View {
                 Label("Settings", systemImage: "gearshape")
             }
         }
-        .buttonBorderShape(.capsule)
-        .buttonStyle(.bordered)
-        .foregroundColor(.primary)
     }
 }
 

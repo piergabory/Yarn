@@ -24,8 +24,6 @@ struct SettingsView: View {
                 Button(action: onDismiss) {
                     Label("Exit", systemImage: "xmark")
                 }
-                .buttonStyle(.bordered)
-                .buttonBorderShape(.capsule)
             }
         }
     }
