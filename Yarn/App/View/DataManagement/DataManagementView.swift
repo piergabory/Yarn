@@ -25,6 +25,7 @@ struct DataManagementView: View {
                 ImportSourcesSections()
             }
                 .navigationTitle("My Locations")
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     DataManagementToolbarView(
                         presentedScreen: $presentedScreen
@@ -34,7 +35,9 @@ struct DataManagementView: View {
         .sheet(item: $presentedScreen) { screen in
             switch screen {
             case .settings:
-                Text("Settings")
+                SettingsView {
+                    presentedScreen = nil
+                }
             case .fileImport:
                 Text("File Import")
             }
@@ -63,6 +66,7 @@ struct DataManagementToolbarView: View {
 struct DataManagementView_Previews: PreviewProvider {
     static var previews: some View {
         Rectangle()
+            .ignoresSafeArea(.all)
             .sheet(isPresented: .constant(true)) {
                 DataManagementView()
             }

@@ -71,13 +71,13 @@
 		D43313D629F31AA300365EB9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D43313D929F31B3300365EB9 /* RootView.swift */,
+				D44A965629F47E7700E86905 /* GeographicData */,
 				D44A965329F4232500E86905 /* Settings */,
 				D43313E629F411E600365EB9 /* ImportSources */,
 				D43313E329F40DFA00365EB9 /* ActivityProgress */,
 				D43313E229F4082F00365EB9 /* Statistics */,
 				D43313E129F4082500365EB9 /* DataManagement */,
-				D43313DB29F401AD00365EB9 /* GeographicDataView.swift */,
+				D43313D929F31B3300365EB9 /* RootView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,6 +120,14 @@
 				D44A965429F4232B00E86905 /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		D44A965629F47E7700E86905 /* GeographicData */ = {
+			isa = PBXGroup;
+			children = (
+				D43313DB29F401AD00365EB9 /* GeographicDataView.swift */,
+			);
+			path = GeographicData;
 			sourceTree = "<group>";
 		};
 		D4F54FBA29E49E40005C65E5 = {

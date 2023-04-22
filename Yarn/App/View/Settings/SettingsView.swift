@@ -6,58 +6,85 @@
 //
 
 import SwiftUI
+import SafariServices
 
 struct SettingsView: View {
-    var body: some View {
-        Form {
-            Section("Rebuild Data") {
-                DescribedAction(
-                    title: "Recalculate visited places",
-                    description:  "toto",
-                    role: nil
-                ) {}
-                DescribedAction(
-                    title: "Reprocess all location data",
-                    description:  "toto",
-                    role: .destructive
-                ) {}
+    var onDismiss: () -> Void
     
+    var body: some View {
+        NavigationStack {
+            Form {
+                AutomaticTrackingSettingsSection()
+                RebuildDataSettingsSection()
+                DeleteAllDataSettingsSection()
+                AboutMeSettingsSection()
             }
-            Section {
-                Button("Delete all data", role: .destructive) {}
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(.white)
-                    .listRowBackground(Color.red)
-                    .listRowInsets(.none)
-            } header: {
-                Label(
-                    "Nuclear option.",
-                    systemImage: "exclamationmark.triangle.fill"
-                )
-                .foregroundColor(.red)
+            .navigationBarTitle("Settings")
+            .toolbar {
+                Button(action: onDismiss) {
+                    Label("Exit", systemImage: "xmark")
+                }
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
             }
         }
     }
 }
 
-struct DescribedAction: View {
-    let title: String
-    let description: String
-    let role: ButtonRole?
-    let action: () -> Void
+struct AutomaticTrackingSettingsSection: View {
+    var body: some View {
+        Section("Automatic tracking") {
+            Toggle("Automatic Tracking", isOn: .constant(false))
+            Toggle("High precision tracking", isOn: .constant(false))
+            Toggle("Import Photos location data", isOn: .constant(false))
+            Button("Open to system settings") { }
+        }
+    }
+}
+
+struct RebuildDataSettingsSection: View {
+    var body: some View {
+        Section("Rebuild Data") {
+            Button("Recalculate visited places") { }
+            Button("Reprocess all location data") { }
+        }
+    }
+}
+
+struct DeleteAllDataSettingsSection: View {
+    private let disclosure = """
+        This will definitively remove all data. You cannot undo this.
+
+        You can trust me, i dont store any data
+        """
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Button(title, role: role,  action: action)
-            Text(description)
-                .font(.caption)
-                .foregroundColor(.secondary)
+        Section {
+            Button("Delete all data", role: .destructive) {}
+        } header: {
+            Text("Nuclear option.")
+        } footer: {
+            Text(disclosure)
         }
+    }
+}
+
+struct AboutMeSettingsSection: View {
+    var body: some View {
+        Section {
+            Link(destination: URL(string: "mailto:contact@piergabory.com")!) {
+                Label("Send feedback", systemImage: "envelope")
+            }
+            Link(destination: URL(string: "https://piergabory.com")!) {
+                Label("About me", systemImage: "safari")
+            }
+        }
+        .foregroundColor(.primary)
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView { }
     }
 }
