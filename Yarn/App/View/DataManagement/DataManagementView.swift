@@ -35,11 +35,9 @@ struct DataManagementView: View {
         .sheet(item: $presentedScreen) { screen in
             switch screen {
             case .settings:
-                SettingsView {
-                    presentedScreen = nil
-                }
+                SettingsView { presentedScreen = nil }
             case .fileImport:
-                Text("File Import")
+                FileImportView { presentedScreen = nil }
             }
         }
     }

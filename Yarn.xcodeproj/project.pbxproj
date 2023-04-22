@@ -14,6 +14,7 @@
 		D43313E529F40E2000365EB9 /* ActivityProgressSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43313E429F40E2000365EB9 /* ActivityProgressSection.swift */; };
 		D43313E829F411FB00365EB9 /* ImportSourcesSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43313E729F411FB00365EB9 /* ImportSourcesSections.swift */; };
 		D44A965529F4232B00E86905 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A965429F4232B00E86905 /* SettingsView.swift */; };
+		D44A965929F48AD400E86905 /* FileImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A965829F48AD400E86905 /* FileImportView.swift */; };
 		D4515EA529F0A61300E38B5B /* QuadTrees in Frameworks */ = {isa = PBXBuildFile; productRef = D4515EA429F0A61300E38B5B /* QuadTrees */; };
 		D4515EA729F0ABF400E38B5B /* LocationDataProcessor in Frameworks */ = {isa = PBXBuildFile; productRef = D4515EA629F0ABF400E38B5B /* LocationDataProcessor */; };
 		D4FBD7DA29E49EBA005FD38A /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7CB29E49EBA005FD38A /* YarnApp.swift */; };
@@ -34,6 +35,7 @@
 		D43313E429F40E2000365EB9 /* ActivityProgressSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityProgressSection.swift; sourceTree = "<group>"; };
 		D43313E729F411FB00365EB9 /* ImportSourcesSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSourcesSections.swift; sourceTree = "<group>"; };
 		D44A965429F4232B00E86905 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D44A965829F48AD400E86905 /* FileImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImportView.swift; sourceTree = "<group>"; };
 		D4515EA329F0958A00E38B5B /* QuadTrees */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = QuadTrees; sourceTree = "<group>"; };
 		D4F54FC329E49E40005C65E5 /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F54FD529E49E78005C65E5 /* DateIntervalPicker */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DateIntervalPicker; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		D43313D629F31AA300365EB9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D44A965729F48AC800E86905 /* FileImport */,
 				D44A965629F47E7700E86905 /* GeographicData */,
 				D44A965329F4232500E86905 /* Settings */,
 				D43313E629F411E600365EB9 /* ImportSources */,
@@ -128,6 +131,14 @@
 				D43313DB29F401AD00365EB9 /* GeographicDataView.swift */,
 			);
 			path = GeographicData;
+			sourceTree = "<group>";
+		};
+		D44A965729F48AC800E86905 /* FileImport */ = {
+			isa = PBXGroup;
+			children = (
+				D44A965829F48AD400E86905 /* FileImportView.swift */,
+			);
+			path = FileImport;
 			sourceTree = "<group>";
 		};
 		D4F54FBA29E49E40005C65E5 = {
@@ -286,6 +297,7 @@
 				D43313DC29F401AD00365EB9 /* GeographicDataView.swift in Sources */,
 				D43313E529F40E2000365EB9 /* ActivityProgressSection.swift in Sources */,
 				D4FBD7DA29E49EBA005FD38A /* YarnApp.swift in Sources */,
+				D44A965929F48AD400E86905 /* FileImportView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
