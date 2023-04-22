@@ -11,7 +11,10 @@ import SwiftUI
 struct YarnApp: App {
     var body: some Scene {
         WindowGroup {
-           DeveloperView()
+           RootView()
+                .onAppear {
+                    UITableView.appearance().backgroundColor = .clear
+                }
         }
     }
 }
