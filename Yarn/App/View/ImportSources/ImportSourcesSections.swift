@@ -10,6 +10,7 @@ import SwiftUI
 struct ImportSourcesSections: View {
     var body: some View {
         Section() {
+            SourceDistributionView()
             ImportSourceView(
                 sourceName: "Records.json",
                 importDate: .now,
@@ -21,6 +22,19 @@ struct ImportSourcesSections: View {
                 systemImage: "doc.fill"
             )
         }
+    }
+}
+
+import Charts
+
+struct SourceDistributionView: View {
+    var body: some View {
+        Chart {
+            BarMark(
+                x: .value("Location Data", 100)
+            )
+        }
+        .frame(height: 40)
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct StatisticsSection: View {
     var body: some View {
         Section {
+            MovementStatisticsView()
             StatisticsItemView(
                 definition: "Number of locations",
                 value: 23448237409,
@@ -35,6 +36,25 @@ struct StatisticsSection: View {
                 "Statistics",
                 systemImage: "chart.bar.fill"
             )
+        }
+    }
+}
+
+import Charts
+
+struct MovementStatisticsView: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Movements")
+                .font(.headline)
+            Chart {
+                BarMark(x: .value("Category", "A"), y: .value("Value", 1))
+                BarMark(x: .value("Category", "B"), y: .value("Value", 2))
+                BarMark(x: .value("Category", "C"), y: .value("Value", 3))
+                BarMark(x: .value("Category", "D"), y: .value("Value", 2))
+                BarMark(x: .value("Category", "E"), y: .value("Value", 3))
+                BarMark(x: .value("Category", "F"), y: .value("Value", 1))
+            }
         }
     }
 }

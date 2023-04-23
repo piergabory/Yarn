@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct RootView: View {
+    @State var isDataManagementViewVisible = true
+    @State var canDismissDataManagementView = false
+    
     var body: some View {
-        GeographicDataView()
-            .sheet(isPresented: .constant(true)) {
+        GeographicDataView(hideControls: $isDataManagementViewVisible)
+            .sheet(isPresented: $isDataManagementViewVisible) {
                 DataManagementView()
                     .scrollContentBackground(.hidden)
                     .presentationBackground(.thickMaterial)
                     .presentationDragIndicator(.visible)
-                    .presentationDetents([.large, .medium, .height(32)])
+                    .presentationDetents([.large, .medium, .height(48)])
                     .presentationBackgroundInteraction(.enabled(upThrough: .medium))
-                    .interactiveDismissDisabled(true)
+                    .interactiveDismissDisabled(!canDismissDataManagementView)
             }
     }
 }

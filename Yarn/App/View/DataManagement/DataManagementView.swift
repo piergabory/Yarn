@@ -33,12 +33,15 @@ struct DataManagementView: View {
                 }
         }
         .sheet(item: $presentedScreen) { screen in
-            switch screen {
-            case .settings:
-                SettingsView { presentedScreen = nil }
-            case .fileImport:
-                FileImportView { presentedScreen = nil }
+            Group {
+                switch screen {
+                case .settings:
+                    SettingsView { presentedScreen = nil }
+                case .fileImport:
+                    FileImportView { presentedScreen = nil }
+                }
             }
+            .scrollContentBackground(.visible)
         }
     }
 }
