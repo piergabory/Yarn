@@ -20,7 +20,7 @@ struct DataManagementView: View {
     var body: some View {
         NavigationStack() {
             List {
-                ActivityProgressSection()
+                ProcessingTasksSection()
                 StatisticsSection()
                 ImportSourcesSections()
             }

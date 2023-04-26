@@ -10,6 +10,7 @@ import SwiftUI
 struct RootView: View {
     @State var isDataManagementViewVisible = true
     @State var canDismissDataManagementView = false
+    @State var selectedDetent: PresentationDetent = .medium
     
     var body: some View {
         GeographicDataView(hideControls: $isDataManagementViewVisible)
@@ -18,7 +19,7 @@ struct RootView: View {
                     .scrollContentBackground(.hidden)
                     .presentationBackground(.thickMaterial)
                     .presentationDragIndicator(.visible)
-                    .presentationDetents([.large, .medium, .height(48)])
+                    .presentationDetents([.large, .medium, .height(48)], selection: $selectedDetent)
                     .presentationBackgroundInteraction(.enabled(upThrough: .medium))
                     .interactiveDismissDisabled(!canDismissDataManagementView)
             }

@@ -9,8 +9,14 @@ import CoreData
 import DataTransferObjects
 import Foundation
 
-public typealias InsertImportSourceRequest = InsertRequest<ImportSourceTransformer>
+public typealias ImportSourcesPublisher = FetchedResultPublisher<ImportSourceTransformer>
+public extension ImportSourcesPublisher {
+    init(managedObjectContext: NSManagedObjectContext) {
+        self.init(convertor: ImportSourceTransformer(), managedObjectContext: managedObjectContext, sortingBy: \.importDate)
+    }
+}
 
+public typealias InsertImportSourceRequest = InsertRequest<ImportSourceTransformer>
 public extension InsertImportSourceRequest {
     init(importSource: ImportSource) {
         self.init(updator: ImportSourceTransformer(), dto: importSource)
