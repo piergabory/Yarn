@@ -19,9 +19,13 @@ class ImportSourcesRepository: ObservableObject {
     func set(context: NSManagedObjectContext) {
         let publisher = ImportSourcesPublisher(managedObjectContext: context)
         sourcePublisher = publisher
-        cancellable = publisher.replaceError(with: []).sink { sources in
-            self.sources = sources
-        }
-        
+        cancellable = publisher
+            .catch { error in
+                print(error)
+                return Just([ImportSource]())
+            }
+            .sink { sources in
+                self.sources = sources
+            }
     }
 }

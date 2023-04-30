@@ -14,7 +14,7 @@ enum PresentableScreens: String, Identifiable {
 }
 
 struct DataManagementView: View {
-    
+    @StateObject var processingTaskQueue = ProcessingTaskQueue()
     @State var presentedScreen: PresentableScreens?
     
     var body: some View {
@@ -43,6 +43,7 @@ struct DataManagementView: View {
             }
             .scrollContentBackground(.visible)
         }
+        .environmentObject(processingTaskQueue)
     }
 }
 

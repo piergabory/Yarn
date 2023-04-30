@@ -23,6 +23,9 @@
 		D44A966929F9DAD700E86905 /* ImportSourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A966829F9DAD700E86905 /* ImportSourcesRepository.swift */; };
 		D4515EA529F0A61300E38B5B /* QuadTrees in Frameworks */ = {isa = PBXBuildFile; productRef = D4515EA429F0A61300E38B5B /* QuadTrees */; };
 		D4515EA729F0ABF400E38B5B /* LocationDataProcessor in Frameworks */ = {isa = PBXBuildFile; productRef = D4515EA629F0ABF400E38B5B /* LocationDataProcessor */; };
+		D4C4914629FEBFAB00DAA7CD /* MovementStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4914529FEBFAB00DAA7CD /* MovementStatisticsView.swift */; };
+		D4C4914829FEBFCA00DAA7CD /* StatisticsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4914729FEBFCA00DAA7CD /* StatisticsItemView.swift */; };
+		D4C4914B29FEC04D00DAA7CD /* StatisticsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4914A29FEC04D00DAA7CD /* StatisticsRepository.swift */; };
 		D4FBD7DA29E49EBA005FD38A /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7CB29E49EBA005FD38A /* YarnApp.swift */; };
 		D4FBD7DB29E49EBA005FD38A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD7CC29E49EBA005FD38A /* Assets.xcassets */; };
 		D4FBD7E529E4A14B005FD38A /* CalendarTools in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E429E4A14B005FD38A /* CalendarTools */; };
@@ -49,6 +52,9 @@
 		D44A966429F9C40500E86905 /* SourceDistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDistributionView.swift; sourceTree = "<group>"; };
 		D44A966829F9DAD700E86905 /* ImportSourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSourcesRepository.swift; sourceTree = "<group>"; };
 		D4515EA329F0958A00E38B5B /* QuadTrees */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = QuadTrees; sourceTree = "<group>"; };
+		D4C4914529FEBFAB00DAA7CD /* MovementStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementStatisticsView.swift; sourceTree = "<group>"; };
+		D4C4914729FEBFCA00DAA7CD /* StatisticsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsItemView.swift; sourceTree = "<group>"; };
+		D4C4914A29FEC04D00DAA7CD /* StatisticsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRepository.swift; sourceTree = "<group>"; };
 		D4F54FC329E49E40005C65E5 /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F54FD529E49E78005C65E5 /* DateIntervalPicker */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DateIntervalPicker; sourceTree = "<group>"; };
 		D4F54FD629E49E78005C65E5 /* FileImportService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FileImportService; sourceTree = "<group>"; };
@@ -108,7 +114,8 @@
 		D43313E229F4082F00365EB9 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
-				D43313DF29F407F900365EB9 /* StatisticsSection.swift */,
+				D4C4914929FEC03E00DAA7CD /* View */,
+				D4C4914A29FEC04D00DAA7CD /* StatisticsRepository.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -171,6 +178,16 @@
 				D44A966429F9C40500E86905 /* SourceDistributionView.swift */,
 				D43313E729F411FB00365EB9 /* ImportSourcesSections.swift */,
 				D44A966229F9C30000E86905 /* ImportSourceView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D4C4914929FEC03E00DAA7CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D43313DF29F407F900365EB9 /* StatisticsSection.swift */,
+				D4C4914729FEBFCA00DAA7CD /* StatisticsItemView.swift */,
+				D4C4914529FEBFAB00DAA7CD /* MovementStatisticsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,12 +342,15 @@
 			files = (
 				D44A966929F9DAD700E86905 /* ImportSourcesRepository.swift in Sources */,
 				D43313E029F407F900365EB9 /* StatisticsSection.swift in Sources */,
+				D4C4914B29FEC04D00DAA7CD /* StatisticsRepository.swift in Sources */,
 				D44A966329F9C30000E86905 /* ImportSourceView.swift in Sources */,
 				D44A965529F4232B00E86905 /* SettingsView.swift in Sources */,
 				D43313DA29F31B3300365EB9 /* RootView.swift in Sources */,
 				D43313DE29F401CB00365EB9 /* DataManagementView.swift in Sources */,
 				D43313E829F411FB00365EB9 /* ImportSourcesSections.swift in Sources */,
 				D44A966029F9C29600E86905 /* ProcessingTaskQueue.swift in Sources */,
+				D4C4914629FEBFAB00DAA7CD /* MovementStatisticsView.swift in Sources */,
+				D4C4914829FEBFCA00DAA7CD /* StatisticsItemView.swift in Sources */,
 				D43313DC29F401AD00365EB9 /* GeographicDataView.swift in Sources */,
 				D43313E529F40E2000365EB9 /* ProcessingTasksSection.swift in Sources */,
 				D4FBD7DA29E49EBA005FD38A /* YarnApp.swift in Sources */,

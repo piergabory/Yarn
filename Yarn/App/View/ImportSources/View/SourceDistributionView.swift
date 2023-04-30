@@ -12,9 +12,7 @@ struct SourceDistributionView: View {
     
     var body: some View {
         Chart {
-            BarMark(
-                x: .value("Location Data", 100)
-            )
+            BarMark(x: .value("Location Data", 100))
         }
         .frame(height: 40)
     }

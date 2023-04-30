@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import LocationDatabase
 
 struct RootView: View {
+    private let dataBase = try! LocationDatabase()
+    
     @State var isDataManagementViewVisible = true
     @State var canDismissDataManagementView = false
     @State var selectedDetent: PresentationDetent = .medium
@@ -23,6 +26,10 @@ struct RootView: View {
                     .presentationBackgroundInteraction(.enabled(upThrough: .medium))
                     .interactiveDismissDisabled(!canDismissDataManagementView)
             }
+            .task {
+                try? await dataBase.loadPersistentStores()
+            }
+            .environment(\.managedObjectContext, dataBase.viewContext)
     }
 }
 

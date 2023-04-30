@@ -12,9 +12,6 @@ struct YarnApp: App {
     var body: some Scene {
         WindowGroup {
            RootView()
-                .onAppear {
-                    UITableView.appearance().backgroundColor = .clear
-                }
         }
     }
 }
