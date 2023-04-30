@@ -26,6 +26,10 @@
 		D4C4914629FEBFAB00DAA7CD /* MovementStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4914529FEBFAB00DAA7CD /* MovementStatisticsView.swift */; };
 		D4C4914829FEBFCA00DAA7CD /* StatisticsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4914729FEBFCA00DAA7CD /* StatisticsItemView.swift */; };
 		D4C4914B29FEC04D00DAA7CD /* StatisticsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4914A29FEC04D00DAA7CD /* StatisticsRepository.swift */; };
+		D4C4914D29FECC3700DAA7CD /* ImportFromGoogleTimelineSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4914C29FECC3700DAA7CD /* ImportFromGoogleTimelineSection.swift */; };
+		D4C4914F29FECC5200DAA7CD /* ImportFromCSVSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4914E29FECC5200DAA7CD /* ImportFromCSVSection.swift */; };
+		D4C4915129FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4915029FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift */; };
+		D4C4915329FECC8400DAA7CD /* FilePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4915229FECC8400DAA7CD /* FilePickerButton.swift */; };
 		D4FBD7DA29E49EBA005FD38A /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7CB29E49EBA005FD38A /* YarnApp.swift */; };
 		D4FBD7DB29E49EBA005FD38A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD7CC29E49EBA005FD38A /* Assets.xcassets */; };
 		D4FBD7E529E4A14B005FD38A /* CalendarTools in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E429E4A14B005FD38A /* CalendarTools */; };
@@ -55,6 +59,10 @@
 		D4C4914529FEBFAB00DAA7CD /* MovementStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementStatisticsView.swift; sourceTree = "<group>"; };
 		D4C4914729FEBFCA00DAA7CD /* StatisticsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsItemView.swift; sourceTree = "<group>"; };
 		D4C4914A29FEC04D00DAA7CD /* StatisticsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRepository.swift; sourceTree = "<group>"; };
+		D4C4914C29FECC3700DAA7CD /* ImportFromGoogleTimelineSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromGoogleTimelineSection.swift; sourceTree = "<group>"; };
+		D4C4914E29FECC5200DAA7CD /* ImportFromCSVSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromCSVSection.swift; sourceTree = "<group>"; };
+		D4C4915029FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromCSVConfigurationView.swift; sourceTree = "<group>"; };
+		D4C4915229FECC8400DAA7CD /* FilePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerButton.swift; sourceTree = "<group>"; };
 		D4F54FC329E49E40005C65E5 /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F54FD529E49E78005C65E5 /* DateIntervalPicker */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DateIntervalPicker; sourceTree = "<group>"; };
 		D4F54FD629E49E78005C65E5 /* FileImportService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FileImportService; sourceTree = "<group>"; };
@@ -158,7 +166,7 @@
 		D44A965729F48AC800E86905 /* FileImport */ = {
 			isa = PBXGroup;
 			children = (
-				D44A965829F48AD400E86905 /* FileImportView.swift */,
+				D4C4915429FECCFE00DAA7CD /* View */,
 			);
 			path = FileImport;
 			sourceTree = "<group>";
@@ -190,6 +198,26 @@
 				D4C4914529FEBFAB00DAA7CD /* MovementStatisticsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D4C4915429FECCFE00DAA7CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4C4915529FECD0E00DAA7CD /* CSV */,
+				D44A965829F48AD400E86905 /* FileImportView.swift */,
+				D4C4915229FECC8400DAA7CD /* FilePickerButton.swift */,
+				D4C4914C29FECC3700DAA7CD /* ImportFromGoogleTimelineSection.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D4C4915529FECD0E00DAA7CD /* CSV */ = {
+			isa = PBXGroup;
+			children = (
+				D4C4915029FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift */,
+				D4C4914E29FECC5200DAA7CD /* ImportFromCSVSection.swift */,
+			);
+			path = CSV;
 			sourceTree = "<group>";
 		};
 		D4F54FBA29E49E40005C65E5 = {
@@ -343,18 +371,22 @@
 				D44A966929F9DAD700E86905 /* ImportSourcesRepository.swift in Sources */,
 				D43313E029F407F900365EB9 /* StatisticsSection.swift in Sources */,
 				D4C4914B29FEC04D00DAA7CD /* StatisticsRepository.swift in Sources */,
+				D4C4915329FECC8400DAA7CD /* FilePickerButton.swift in Sources */,
 				D44A966329F9C30000E86905 /* ImportSourceView.swift in Sources */,
 				D44A965529F4232B00E86905 /* SettingsView.swift in Sources */,
 				D43313DA29F31B3300365EB9 /* RootView.swift in Sources */,
 				D43313DE29F401CB00365EB9 /* DataManagementView.swift in Sources */,
 				D43313E829F411FB00365EB9 /* ImportSourcesSections.swift in Sources */,
 				D44A966029F9C29600E86905 /* ProcessingTaskQueue.swift in Sources */,
+				D4C4915129FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift in Sources */,
+				D4C4914F29FECC5200DAA7CD /* ImportFromCSVSection.swift in Sources */,
 				D4C4914629FEBFAB00DAA7CD /* MovementStatisticsView.swift in Sources */,
 				D4C4914829FEBFCA00DAA7CD /* StatisticsItemView.swift in Sources */,
 				D43313DC29F401AD00365EB9 /* GeographicDataView.swift in Sources */,
 				D43313E529F40E2000365EB9 /* ProcessingTasksSection.swift in Sources */,
 				D4FBD7DA29E49EBA005FD38A /* YarnApp.swift in Sources */,
 				D44A965929F48AD400E86905 /* FileImportView.swift in Sources */,
+				D4C4914D29FECC3700DAA7CD /* ImportFromGoogleTimelineSection.swift in Sources */,
 				D44A965E29F9BF2400E86905 /* ProcessingTaskView.swift in Sources */,
 				D44A965B29F9BF0B00E86905 /* ProcessingTask.swift in Sources */,
 				D44A966529F9C40500E86905 /* SourceDistributionView.swift in Sources */,
