@@ -14,9 +14,12 @@ enum PresentableScreens: String, Identifiable {
 }
 
 struct DataManagementView: View {
-    @StateObject var processingTaskQueue = ProcessingTaskQueue()
-    @State var presentedScreen: PresentableScreens?
-    
+    @StateObject
+    var processingTaskQueue = ProcessingTaskQueue()
+
+    @State
+    var presentedScreen: PresentableScreens?
+
     var body: some View {
         NavigationStack() {
             List {
@@ -69,6 +72,5 @@ struct DataManagementView_Previews: PreviewProvider {
             .sheet(isPresented: .constant(true)) {
                 DataManagementView()
             }
-        
     }
 }

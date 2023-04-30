@@ -13,7 +13,9 @@ import LocationDatabase
 
 class ImportSourcesRepository: ObservableObject {
     private var sourcePublisher: ImportSourcesPublisher?
-    @Published var sources: [ImportSource] = []
+    
+    @Published
+    var sources: [ImportSource] = []
     var cancellable: AnyCancellable?
 
     func set(context: NSManagedObjectContext) {

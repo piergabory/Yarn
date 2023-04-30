@@ -9,7 +9,8 @@ import Combine
 import SwiftUI
 
 struct ProcessingTaskView: View {
-    @State private var lastMessage = "Processing..."
+    @State
+    private var lastMessage = "Processing..."
     let task: ProcessingTask
     
     var body: some View {

@@ -16,7 +16,7 @@ struct ImportSourcesSections: View {
     
     var body: some View {
         Section {
-            SourceDistributionView()
+            SourceDistributionView(sources: importSourcesRepository.sources)
             ForEach(importSourcesRepository.sources) { source in
                 ImportSourceView(source: source)
             }

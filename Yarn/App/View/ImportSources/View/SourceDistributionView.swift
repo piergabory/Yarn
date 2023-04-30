@@ -6,13 +6,18 @@
 //
 
 import Charts
+import DataTransferObjects
 import SwiftUI
 
 struct SourceDistributionView: View {
     
+    let sources: [ImportSource]
+    
     var body: some View {
         Chart {
-            BarMark(x: .value("Location Data", 100))
+            ForEach(sources) { source in
+                BarMark(x: .value("Count", source.datumCount ?? 0))
+            }
         }
         .frame(height: 40)
     }
@@ -20,6 +25,6 @@ struct SourceDistributionView: View {
 
 struct SourceDistributionView_Previews: PreviewProvider {
     static var previews: some View {
-        SourceDistributionView()
+        SourceDistributionView(sources: [])
     }
 }

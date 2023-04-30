@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ProcessingTasksSection: View {
-    @EnvironmentObject var queue: ProcessingTaskQueue
+    
+    @EnvironmentObject
+    var queue: ProcessingTaskQueue
     
     var body: some View {
         Section {

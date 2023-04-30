@@ -9,5 +9,6 @@ import Combine
 import Foundation
 
 final class ProcessingTaskQueue: ObservableObject {
-    @Published var tasks: [ProcessingTask] = []
+    @Published
+    var tasks: [ProcessingTask] = []
 }

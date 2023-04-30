@@ -18,11 +18,21 @@ final class StatisticsRepository: ObservableObject {
         var id: Date { date }
     }
     
-    @Published var numberOfLocations: Int = 0
-    @Published var maximumSpeed: Double?
-    @Published var firstMeasurementDate: Date?
-    @Published var lastMeasurementDate: Date?
-    @Published var movementDataPoint: [MovementDataPoint] = []
+    
+    @Published
+    var numberOfLocations: Int = 0
+    
+    @Published
+    var maximumSpeed: Double?
+    
+    @Published
+    var firstMeasurementDate: Date?
+    
+    @Published
+    var lastMeasurementDate: Date?
+    
+    @Published
+    var movementDataPoint: [MovementDataPoint] = []
     
     var managedObjectContext: NSManagedObjectContext? {
         didSet { fetchData() }

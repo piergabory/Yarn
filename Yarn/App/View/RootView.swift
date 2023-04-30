@@ -11,9 +11,14 @@ import LocationDatabase
 struct RootView: View {
     private let dataBase = try! LocationDatabase()
     
-    @State var isDataManagementViewVisible = true
-    @State var canDismissDataManagementView = false
-    @State var selectedDetent: PresentationDetent = .medium
+    @State
+    var isDataManagementViewVisible = true
+    
+    @State
+    var canDismissDataManagementView = false
+    
+    @State
+    var selectedDetent: PresentationDetent = .medium
     
     var body: some View {
         GeographicDataView(hideControls: $isDataManagementViewVisible)
