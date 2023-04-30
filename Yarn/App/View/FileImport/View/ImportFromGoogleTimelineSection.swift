@@ -6,9 +6,18 @@
 //
 
 import SwiftUI
+import Combine
+import FileImportService
 
 struct ImportFromGoogleTimelineSection: View {
+    @Environment(\.managedObjectContext)
+    var managedObjectContext
+    
+    @EnvironmentObject
+    var processingTaskQueue: ProcessingTaskQueue
+    
     let onFileSelect: () -> Void
+
     var body: some View {
         Section {
             VStack(alignment: .leading) {
@@ -26,6 +35,28 @@ struct ImportFromGoogleTimelineSection: View {
                 systemImage: "doc",
                 allowedContentTypes: [.json]
             ) { result in
+                do {
+                    let url = try result.get()
+                    let fileImport = try JSONLocationFileImportService(
+                        fileURL: url,
+                        fileDeserializer: GoogleTimelineDeserializer()
+                    )
+                    let progress = fileImport.progress
+                    let task = Task.detached {
+                        _ = try await fileImport.load()
+                    }
+                    let processingTask = ProcessingTask(
+                        id: UUID(),
+                        label: url.lastPathComponent,
+                        logs: Just("Decoding file").eraseToAnyPublisher(),
+                        task: task,
+                        progess: progress
+                    )
+                    processingTaskQueue.tasks.append(processingTask)
+                } catch {
+                    print(error)
+                }
+                
                 onFileSelect()
             }
         }
