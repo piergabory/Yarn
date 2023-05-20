@@ -30,6 +30,7 @@
 		D4C4914F29FECC5200DAA7CD /* ImportFromCSVSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4914E29FECC5200DAA7CD /* ImportFromCSVSection.swift */; };
 		D4C4915129FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4915029FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift */; };
 		D4C4915329FECC8400DAA7CD /* FilePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4915229FECC8400DAA7CD /* FilePickerButton.swift */; };
+		D4C491582A18EE1600DAA7CD /* LabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C491572A18EE1600DAA7CD /* LabsView.swift */; };
 		D4FBD7DA29E49EBA005FD38A /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7CB29E49EBA005FD38A /* YarnApp.swift */; };
 		D4FBD7DB29E49EBA005FD38A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD7CC29E49EBA005FD38A /* Assets.xcassets */; };
 		D4FBD7E529E4A14B005FD38A /* CalendarTools in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E429E4A14B005FD38A /* CalendarTools */; };
@@ -63,6 +64,7 @@
 		D4C4914E29FECC5200DAA7CD /* ImportFromCSVSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromCSVSection.swift; sourceTree = "<group>"; };
 		D4C4915029FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromCSVConfigurationView.swift; sourceTree = "<group>"; };
 		D4C4915229FECC8400DAA7CD /* FilePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerButton.swift; sourceTree = "<group>"; };
+		D4C491572A18EE1600DAA7CD /* LabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabsView.swift; sourceTree = "<group>"; };
 		D4F54FC329E49E40005C65E5 /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F54FD529E49E78005C65E5 /* DateIntervalPicker */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DateIntervalPicker; sourceTree = "<group>"; };
 		D4F54FD629E49E78005C65E5 /* FileImportService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FileImportService; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		D43313D629F31AA300365EB9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D4C491562A18EE0F00DAA7CD /* Labs */,
 				D44A965729F48AC800E86905 /* FileImport */,
 				D44A965629F47E7700E86905 /* GeographicData */,
 				D44A965329F4232500E86905 /* Settings */,
@@ -218,6 +221,14 @@
 				D4C4914E29FECC5200DAA7CD /* ImportFromCSVSection.swift */,
 			);
 			path = CSV;
+			sourceTree = "<group>";
+		};
+		D4C491562A18EE0F00DAA7CD /* Labs */ = {
+			isa = PBXGroup;
+			children = (
+				D4C491572A18EE1600DAA7CD /* LabsView.swift */,
+			);
+			path = Labs;
 			sourceTree = "<group>";
 		};
 		D4F54FBA29E49E40005C65E5 = {
@@ -386,6 +397,7 @@
 				D43313E529F40E2000365EB9 /* ProcessingTasksSection.swift in Sources */,
 				D4FBD7DA29E49EBA005FD38A /* YarnApp.swift in Sources */,
 				D44A965929F48AD400E86905 /* FileImportView.swift in Sources */,
+				D4C491582A18EE1600DAA7CD /* LabsView.swift in Sources */,
 				D4C4914D29FECC3700DAA7CD /* ImportFromGoogleTimelineSection.swift in Sources */,
 				D44A965E29F9BF2400E86905 /* ProcessingTaskView.swift in Sources */,
 				D44A965B29F9BF0B00E86905 /* ProcessingTask.swift in Sources */,

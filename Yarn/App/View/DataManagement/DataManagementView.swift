@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum PresentableScreens: String, Identifiable {
-    case settings, fileImport
+    case settings, fileImport, labs
     
     var id: String { rawValue }
 }
@@ -42,6 +42,8 @@ struct DataManagementView: View {
                     SettingsView { presentedScreen = nil }
                 case .fileImport:
                     FileImportView { presentedScreen = nil }
+                case .labs:
+                    LabsView { presentedScreen = nil }
                 }
             }
             .scrollContentBackground(.visible)
@@ -60,6 +62,9 @@ struct DataManagementToolbarView: View {
             }
             Button { presentedScreen = .settings } label: {
                 Label("Settings", systemImage: "gearshape")
+            }
+            Button { presentedScreen = .labs } label: {
+                Label("Labs", systemImage: "hammer")
             }
         }
     }
