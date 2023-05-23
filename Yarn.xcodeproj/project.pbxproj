@@ -31,6 +31,7 @@
 		D4C4915129FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4915029FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift */; };
 		D4C4915329FECC8400DAA7CD /* FilePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4915229FECC8400DAA7CD /* FilePickerButton.swift */; };
 		D4C491582A18EE1600DAA7CD /* LabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C491572A18EE1600DAA7CD /* LabsView.swift */; };
+		D4C4915C2A18F08000DAA7CD /* TaskManager in Frameworks */ = {isa = PBXBuildFile; productRef = D4C4915B2A18F08000DAA7CD /* TaskManager */; };
 		D4FBD7DA29E49EBA005FD38A /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7CB29E49EBA005FD38A /* YarnApp.swift */; };
 		D4FBD7DB29E49EBA005FD38A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD7CC29E49EBA005FD38A /* Assets.xcassets */; };
 		D4FBD7E529E4A14B005FD38A /* CalendarTools in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E429E4A14B005FD38A /* CalendarTools */; };
@@ -65,6 +66,8 @@
 		D4C4915029FECC7300DAA7CD /* ImportFromCSVConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromCSVConfigurationView.swift; sourceTree = "<group>"; };
 		D4C4915229FECC8400DAA7CD /* FilePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerButton.swift; sourceTree = "<group>"; };
 		D4C491572A18EE1600DAA7CD /* LabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabsView.swift; sourceTree = "<group>"; };
+		D4C4915A2A18F05E00DAA7CD /* TaskManager */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TaskManager; sourceTree = "<group>"; };
+		D4D97D982A1D6E52005EDFB6 /* TimelineView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TimelineView; sourceTree = "<group>"; };
 		D4F54FC329E49E40005C65E5 /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F54FD529E49E78005C65E5 /* DateIntervalPicker */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DateIntervalPicker; sourceTree = "<group>"; };
 		D4F54FD629E49E78005C65E5 /* FileImportService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FileImportService; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 			files = (
 				D4515EA729F0ABF400E38B5B /* LocationDataProcessor in Frameworks */,
 				D4FBD7ED29E4A14B005FD38A /* LocationDatabase in Frameworks */,
+				D4C4915C2A18F08000DAA7CD /* TaskManager in Frameworks */,
 				D4FBD7E929E4A14B005FD38A /* DateIntervalPicker in Frameworks */,
 				D4FBD7F129E4A14B005FD38A /* MapView in Frameworks */,
 				D4FBD7EB29E4A14B005FD38A /* FileImportService in Frameworks */,
@@ -264,6 +268,8 @@
 		D4F54FDC29E49E88005C65E5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				D4D97D982A1D6E52005EDFB6 /* TimelineView */,
+				D4C4915A2A18F05E00DAA7CD /* TaskManager */,
 				D4515EA329F0958A00E38B5B /* QuadTrees */,
 				D4F54FD929E49E78005C65E5 /* CalendarTools */,
 				D4F54FD829E49E78005C65E5 /* DataTransferObjects */,
@@ -324,6 +330,7 @@
 				D4FBD7F029E4A14B005FD38A /* MapView */,
 				D4515EA429F0A61300E38B5B /* QuadTrees */,
 				D4515EA629F0ABF400E38B5B /* LocationDataProcessor */,
+				D4C4915B2A18F08000DAA7CD /* TaskManager */,
 			);
 			productName = Yarn;
 			productReference = D4F54FC329E49E40005C65E5 /* Yarn.app */;
@@ -633,6 +640,10 @@
 		D4515EA629F0ABF400E38B5B /* LocationDataProcessor */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LocationDataProcessor;
+		};
+		D4C4915B2A18F08000DAA7CD /* TaskManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TaskManager;
 		};
 		D4FBD7E429E4A14B005FD38A /* CalendarTools */ = {
 			isa = XCSwiftPackageProductDependency;
