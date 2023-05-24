@@ -25,8 +25,5 @@ let package = Package(
         .target(
             name: "TimelineView",
             dependencies: []),
-        .testTarget(
-            name: "TimelineViewTests",
-            dependencies: ["TimelineView"]),
     ]
 )

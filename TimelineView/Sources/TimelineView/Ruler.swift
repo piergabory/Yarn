@@ -7,32 +7,60 @@
 
 import SwiftUI
 
-struct Ruler: View {
-    private let ticks: Int
-    private let strokeStyle: StrokeStyle
+struct Ruler<MarkData: RandomAccessCollection, MarkFormat: FormatStyle>: View
+where
+    MarkData.Element: Hashable,
+    MarkData.Element == MarkFormat.FormatInput,
+    MarkFormat.FormatOutput == String
+{
+    private let rows = [
+        GridItem(.fixed(30)),
+        GridItem(.flexible()),
+    ]
     
-    init(ticks: Int, strokeStyle: StrokeStyle = StrokeStyle(lineWidth: 1)) {
-        self.ticks = ticks
-        self.strokeStyle = strokeStyle
+    private let markData: MarkData
+    private let markFormat: MarkFormat
+    private let origin: MarkData.Element?
+    private let subticks: [Int]
+    
+    init(
+        _ markData: MarkData,
+        format: MarkFormat,
+        origin: MarkData.Element? = nil,
+        subticksBetweenMarks: [Int] = [2, 8]
+    ) {
+        self.markData = markData
+        self.markFormat = format
+        self.origin = origin
+        self.subticks = subticksBetweenMarks
     }
     
     var body: some View {
-        Canvas { context, size in
-            let spacing = size.width / CGFloat(ticks)
-            var path = Path()
-            for index in 0...ticks {
-                let position = CGFloat(index) * spacing
-                path.move(to: CGPoint(x: position, y: 0))
-                path.addLine(to: CGPoint(x: position, y: size.height))
+        ScrollViewReader { scrollProxy in
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHGrid(rows: rows, spacing: 0) {
+                    ForEach(markData, id: \.self) { value in
+                        Text(value, format: markFormat)
+                        SubticksMarks(levels: subticks)
+                            .frame(width: 200)
+                            .id(value)
+                    }
+                }
             }
-            context.stroke(path, with: .foreground, style: strokeStyle)
+            .onAppear { resetToOrigin(scrollProxy) }
+            .onTapGesture(count: 2) { resetToOrigin(scrollProxy) }
+        }
+    }
+    
+    private func resetToOrigin(_ scrollProxy: ScrollViewProxy) {
+        if let origin {
+            scrollProxy.scrollTo(origin, anchor: .center)
         }
     }
 }
 
 struct Ruler_Previews: PreviewProvider {
     static var previews: some View {
-        Ruler(ticks: 10)
-            .previewLayout(.fixed(width: 100, height: 20))
+        Ruler(-30...30, format: .number, origin: 0)
     }
 }

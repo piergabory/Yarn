@@ -1,5 +1,5 @@
 //
-//  Ruler.swift
+//  TickMarks.swift
 //  
 //
 //  Created by Pierre Gabory on 09/04/2023.
