@@ -8,32 +8,38 @@
 import SwiftUI
 
 struct TimelineView: View {
-    @State var stateOffset: CGFloat = 0
-    @State var gestureOffset: CGFloat = 0
-    var offset: CGFloat { stateOffset + gestureOffset }
+    @State var scale: CGFloat = 1
+    let span = -10000...10000
     
     var body: some View {
-        GeometryReader { geometry in
-            let width = geometry.size.width * (1 + 1/6)
-            let height = geometry.size.height
-            let periodicity = width / 12
-            let renderingOffset = offset.remainder(dividingBy: periodicity)
-            
-            subtickedRuler
-                .frame(width: width, height: height)
-                .offset(CGSize(width: renderingOffset - periodicity, height: 0))
+        ScrollViewReader { scrollProxy in
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .center, spacing: 0) {
+                    ForEach(span, id: \.self) { index in
+                        VStack {
+                            Text(index, format: .number)
+                            subtickedRuler
+                        }
+                            .frame(width: 200 * scale)
+                            .id(index)
+                    }
+                }
+            }
+            .onAppear {
+                scrollProxy.scrollTo(0, anchor: .center)
+            }
+            .gesture(pinchGesture)
+            .onTapGesture(count: 2) {
+                scrollProxy.scrollTo(0, anchor: .center)
+            }
         }
-        .gesture(panGesture)
     }
     
-    var panGesture: some Gesture { DragGesture()
-        .onChanged { gestureState in
-            gestureOffset = gestureState.translation.width
-        }
-        .onEnded { gestureState in
-            stateOffset += gestureState.translation.width
-            gestureOffset = 0
-        }
+    var pinchGesture: some Gesture {
+        MagnificationGesture()
+            .onChanged { scale in
+                self.scale = scale
+            }
     }
     
     var subtickedRuler: some View {
