@@ -14,8 +14,8 @@ where
     MarkFormat.FormatOutput == String
 {
     private let rows = [
-        GridItem(.fixed(30)),
-        GridItem(.flexible()),
+        GridItem(),
+        GridItem(.flexible(minimum: 20)),
     ]
     
     private let markData: MarkData
@@ -41,6 +41,7 @@ where
                 LazyHGrid(rows: rows, spacing: 0) {
                     ForEach(markData, id: \.self) { value in
                         Text(value, format: markFormat)
+                            .offset(x: -100)
                         SubticksMarks(levels: subticks)
                             .frame(width: 200)
                             .id(value)

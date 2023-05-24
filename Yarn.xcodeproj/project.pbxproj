@@ -32,6 +32,7 @@
 		D4C4915329FECC8400DAA7CD /* FilePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4915229FECC8400DAA7CD /* FilePickerButton.swift */; };
 		D4C491582A18EE1600DAA7CD /* LabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C491572A18EE1600DAA7CD /* LabsView.swift */; };
 		D4C4915C2A18F08000DAA7CD /* TaskManager in Frameworks */ = {isa = PBXBuildFile; productRef = D4C4915B2A18F08000DAA7CD /* TaskManager */; };
+		D4EF67102A1EC18C002C6146 /* TimelineView in Frameworks */ = {isa = PBXBuildFile; productRef = D4EF670F2A1EC18C002C6146 /* TimelineView */; };
 		D4FBD7DA29E49EBA005FD38A /* YarnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBD7CB29E49EBA005FD38A /* YarnApp.swift */; };
 		D4FBD7DB29E49EBA005FD38A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FBD7CC29E49EBA005FD38A /* Assets.xcassets */; };
 		D4FBD7E529E4A14B005FD38A /* CalendarTools in Frameworks */ = {isa = PBXBuildFile; productRef = D4FBD7E429E4A14B005FD38A /* CalendarTools */; };
@@ -91,6 +92,7 @@
 				D4FBD7ED29E4A14B005FD38A /* LocationDatabase in Frameworks */,
 				D4C4915C2A18F08000DAA7CD /* TaskManager in Frameworks */,
 				D4FBD7E929E4A14B005FD38A /* DateIntervalPicker in Frameworks */,
+				D4EF67102A1EC18C002C6146 /* TimelineView in Frameworks */,
 				D4FBD7F129E4A14B005FD38A /* MapView in Frameworks */,
 				D4FBD7EB29E4A14B005FD38A /* FileImportService in Frameworks */,
 				D4FBD7E729E4A14B005FD38A /* DataTransferObjects in Frameworks */,
@@ -331,6 +333,7 @@
 				D4515EA429F0A61300E38B5B /* QuadTrees */,
 				D4515EA629F0ABF400E38B5B /* LocationDataProcessor */,
 				D4C4915B2A18F08000DAA7CD /* TaskManager */,
+				D4EF670F2A1EC18C002C6146 /* TimelineView */,
 			);
 			productName = Yarn;
 			productReference = D4F54FC329E49E40005C65E5 /* Yarn.app */;
@@ -644,6 +647,10 @@
 		D4C4915B2A18F08000DAA7CD /* TaskManager */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TaskManager;
+		};
+		D4EF670F2A1EC18C002C6146 /* TimelineView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TimelineView;
 		};
 		D4FBD7E429E4A14B005FD38A /* CalendarTools */ = {
 			isa = XCSwiftPackageProductDependency;
