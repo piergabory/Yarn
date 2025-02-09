@@ -27,6 +27,7 @@
 		D41217402D5928D700DCB602 /* Yarn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41217532D5928DB00DCB602 /* YarnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YarnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D412175D2D5928DB00DCB602 /* YarnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YarnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D41217C42D592EC100DCB602 /* YarnDecoder */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = YarnDecoder; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -78,6 +79,7 @@
 				D41217422D5928D700DCB602 /* Yarn */,
 				D41217562D5928DB00DCB602 /* YarnTests */,
 				D41217602D5928DB00DCB602 /* YarnUITests */,
+				D41217C42D592EC100DCB602 /* YarnDecoder */,
 				D41217412D5928D700DCB602 /* Products */,
 			);
 			sourceTree = "<group>";
